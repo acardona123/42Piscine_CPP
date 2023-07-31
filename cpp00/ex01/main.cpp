@@ -5,9 +5,9 @@ int main()
 	PhoneBook 	book;
 	std::string	line;
 
-	std::cout << "Phone book ready to be used." << std::endl;
 	while (1)
 	{
+		std::cout << std::endl << "Command (ADD, SEARCH or EXIT): ";
 		getline(std::cin, line);
 		if (!line.compare("ADD"))
 			book.phonebook_add();

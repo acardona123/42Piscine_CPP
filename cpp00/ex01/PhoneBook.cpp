@@ -6,17 +6,21 @@
 /*   By: alexcardona <alexcardona@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 20:20:14 by alexcardona       #+#    #+#             */
-/*   Updated: 2023/07/30 01:20:15 by alexcardona      ###   ########.fr       */
+/*   Updated: 2023/08/01 01:28:05 by alexcardona      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook(void) : _index(0)
-{}
+{
+	std::cout << "Empty new phonebook generatedm use ADD, SEARCH and EXIT commands to interact with it." << std::endl;
+}
 
 PhoneBook::~PhoneBook(void)
-{}
+{
+	std::cout << "Phonebook destroyed" << std::endl;
+}
 
 
 /* ============= _phonebook_add ================*/
@@ -24,7 +28,7 @@ PhoneBook::~PhoneBook(void)
 void	PhoneBook::phonebook_add(void)
 {
 	this->_repertory[this->_index].set_all();
-	std::cout << "Contact added." << std::endl << std::endl;
+	std::cout << "Contact added." << std::endl;
 	this->_index++;
 	this->_index %= 8;
 }
@@ -82,14 +86,13 @@ static int	_search_print_contact_list(const Contact list[8])
 
 int	_search_get_input_index(int nb_contacts)
 {
-	std::cout << "Please enter the index of the contact you would like to display (in [0; " << nb_contacts - 1 << "]): ";
+	std::cout << "- Please enter the index of the contact you would like to display (in [0; " << nb_contacts - 1 << "]): ";
 	std::string	input;
 	while (1)
 	{
 		getline(std::cin, input);
-		// std::cout << "res : " << (input.size() != 1) << " ; " << (std::isdigit(input[0])) << " ; " << input[0] - 0 << std::endl;//--------------------------------------------------------
 		if (input.size() != 1 || !std::isdigit(input[0]) || input[0] - '0' >= nb_contacts)
-			std::cout << " Incorrect index, please enter an index in [0;" << nb_contacts - 1 << "] :" << std::endl;
+			std::cout << "\tIncorrect index, please enter an index in [0;" << nb_contacts - 1 << "] :" << std::endl;
 		else
 		 	return (input[0] - '0');
 	}
@@ -102,18 +105,13 @@ void	PhoneBook::phonebook_search(void) const
 	if (!nb_contacts)
 		return ;
 	int	index_input = _search_get_input_index(nb_contacts);
-	std::cout << "Your contact is :" << std::endl;
-	std::cout << " - first name : " << this->_repertory[index_input].get_first_name() << std::endl;
-	std::cout << " - last name : " << this->_repertory[index_input].get_last_name() << std::endl;
-	std::cout << " - nickname : " << this->_repertory[index_input].get_nickname() << std::endl;
-	std::cout << " - phone number : " << this->_repertory[index_input].get_phone() << std::endl;
-	std::cout << " - darkest secret : " << this->_repertory[index_input].get_secret() << std::endl;
-	std::cout << "End of the research." << std::endl << std::endl;
+	std::cout << "-> Your contact data is :" << std::endl;
+	std::cout << "  - first name : " << this->_repertory[index_input].get_first_name() << std::endl;
+	std::cout << "  - last name : " << this->_repertory[index_input].get_last_name() << std::endl;
+	std::cout << "  - nickname : " << this->_repertory[index_input].get_nickname() << std::endl;
+	std::cout << "  - phone number : " << this->_repertory[index_input].get_phone() << std::endl;
+	std::cout << "  - darkest secret : " << this->_repertory[index_input].get_secret() << std::endl;
+	std::cout << "End of the research." << std::endl;
 }
 
 /* ============= _phonebook_search end================*/
-
-
-/* ============= _phonebook_run ================*/
-
-/* ============= _phonebook_run end ================*/

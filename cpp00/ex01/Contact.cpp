@@ -6,7 +6,7 @@
 /*   By: alexcardona <alexcardona@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 18:12:41 by alexcardona       #+#    #+#             */
-/*   Updated: 2023/07/30 00:31:08 by alexcardona      ###   ########.fr       */
+/*   Updated: 2023/08/01 01:22:51 by alexcardona      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,14 +70,21 @@ std::string	_set_a_name(std::string const name_of_name, std::string const specia
 	std::string	input;
 	char		error (0);
 	
-	std::cout << "Enter your " << name_of_name << " please : ";
+	std::cout << "- Enter the contact's " << name_of_name << " please : ";
 	while (1)
 	{
 		error = 0;
 		getline(std::cin, input);
+		while (!input.empty() && input[0] == ' ')
+			input.erase(0, 1);
 		if (input.empty())
 		{
-			std::cout << " The " << name_of_name << " cannot be empty" << std::endl << " Please retry : ";
+			std::cout << "\tThe " << name_of_name << " cannot be empty" << std::endl << "\tPlease retry : ";
+			continue ;
+		}
+		if (!std::isalpha(input[0]))
+		{
+			std::cout << "\tThe " << name_of_name << " must start with a letter" << std::endl << "\tPlease retry : ";
 			continue ;
 		}
 		for (size_t i = 0;  i < input.size(); i++)
@@ -85,8 +92,9 @@ std::string	_set_a_name(std::string const name_of_name, std::string const specia
 			if (!std::isalpha(input[i])
 				&& special_chars.find(input[i]) == std::string::npos)
 			{
-				std::cout << " The " << name_of_name << " can only contains lettres and those elements of \" " << special_chars << "\"" << std::endl << " Please retry : ";
+				std::cout << "\tThe " << name_of_name << " can only contain lettres and the elements of the following string : \"" << special_chars << "\"" << std::endl << "\tPlease retry : ";
 				error = 1;
+				break ;
 			}
 			else
 				input[i] = static_cast <unsigned char> (std::tolower(input[i]));
@@ -111,13 +119,13 @@ void	Contact::set_nickname(void)
 {
 	std::string input;
 
-	std::cout << "Enter your nickname name please : ";
+	std::cout << "- Enter the contact's nickname name please : ";
 	while (1)
 	{
 		getline(std::cin, input);
 		if (input.empty())
 		{
-			std::cout << " The nickname cannot be empty" << std::endl << " Please retry : ";
+			std::cout << "\tThe nickname cannot be empty" << std::endl << " \tPlease retry : ";
 			continue ;
 		}
 		else
@@ -131,7 +139,7 @@ void	Contact::set_phone_number(void)
 	std::string input;
 	bool		error;
 	
-	std::cout << "Enter your phone number please : ";
+	std::cout << "- Enter the contact's phone number please : ";
 	while (1)
 	{
 		error = false;
@@ -150,7 +158,7 @@ void	Contact::set_phone_number(void)
 			}
 		}
 		if (error)
-			std::cout << " The phone number must contain exactly 10 diggits." << std::endl << " Please retry : ";
+			std::cout << "\tThe phone number must contain exactly 10 diggits." << std::endl << "\tPlease retry : ";
 		else
 			break;
 	}
@@ -161,13 +169,13 @@ void	Contact::set_secret(void)
 {
 	std::string input;
 	
-	std::cout << "Enter your darkest secret please : ";
+	std::cout << "- Enter the contact's darkest secret please : ";
 	while (1)
 	{
 		getline(std::cin, input);
 		if (input.empty())
 		{
-			std::cout << " Don't be shy ! I know everybody have a darkest secret..." << std::endl << " I swear I won't tell it to anybody, tell it to me : ";
+			std::cout << "\tDon't be shy ! I know everybody have a darkest secret..." << std::endl << "\tI swear I won't tell it to anybody, tell it to me : ";
 			continue ;
 		}
 		else
