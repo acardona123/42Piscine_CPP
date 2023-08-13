@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 19:17:34 by acardona          #+#    #+#             */
-/*   Updated: 2023/08/13 16:17:20 by acardona         ###   ########.fr       */
+/*   Updated: 2023/08/14 00:46:20 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int main(int ac, char **av)
 	{
 		continue ;
 	}
-	std::cout << "Replacement done, output saved in the file " << outputName << std::endl;
+	std::cout << "Replacement done (\"" << sToReplace << "\" -> \"" << sReplacement << "\"), output saved in the file " << outputName << std::endl;
 	return (0);
 }
 
@@ -75,8 +75,8 @@ bool	replace_in_one_line(std::ifstream *infile, std::ofstream *outfile, std::str
 
 /*tests :
 
-echo -e "this is a short text. it contains the kewyword "this".\nWe try to change this by THIS.\nis it doable ?\n" > test_input;
 make;
+echo -e "this is a short text. it contains the kewyword "this".\nWe try to change this by THIS.\nis it doable ?\n" > test_input;
 ./sed_is_for_loosers test_input this THIS
 
 */

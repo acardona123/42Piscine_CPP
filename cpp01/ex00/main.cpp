@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexcardona <alexcardona@student.42.fr>    +#+  +:+       +#+        */
+/*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 14:55:03 by alexcardona       #+#    #+#             */
-/*   Updated: 2023/08/01 16:15:52 by alexcardona      ###   ########.fr       */
+/*   Updated: 2023/08/14 00:25:22 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,24 @@
 int main( void )
 {
 	Zombie	z0("First");
-	Zombie	*pz1;
+	Zombie	*pZ1;
 	
 	std::cout << "manual display : ";
 	z0.announce();
 	
-	pz1 = newZombie("Second");
-	std::cout << "manual display : ";
-	pz1->announce();
-	delete pz1;
+	pZ1 = newZombie("Second");
+	if (pZ1)
+	{
+		std::cout << "manual display : ";
+		pZ1->announce();
+		delete pZ1;
+	}
+	else
+		std::cout << "Allocation faillure" << std::endl;
 
+	std::cout << std::endl << "Chump : " << std::endl;
 	randomChump("Third");
 	
-	
+	std::cout << std::endl;
 	return (0);
 }

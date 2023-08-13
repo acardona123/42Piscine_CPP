@@ -32,7 +32,7 @@ run : all
 $(NAME) : $(OBJ)
 	$(CC) $(CFLAGS) $(DEPSFLAG) $(OBJ) -o $(NAME)
 
-$(OBJ_DIR)/%.o : %.cpp
+$(OBJ_DIR)/%.o : %.cpp Makefile
 	@mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) $(DEPSFLAG) -c $< -o $@
 

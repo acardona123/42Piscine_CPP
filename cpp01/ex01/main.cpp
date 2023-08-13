@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 17:10:06 by acardona          #+#    #+#             */
-/*   Updated: 2023/08/13 18:41:44 by acardona         ###   ########.fr       */
+/*   Updated: 2023/08/14 00:29:32 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,11 @@ static int _one_loop(void)
 	if (!horde)
 		return 1;
 	for (int i = 0; i < nb_zomb; i++)
+	{
 		std::cout << i << ": " << horde[i].get_name() << std::endl;
+		horde[i].announce();
+		std::cout << std::endl;
+	}
 	std::cout << "All displayed !" << std::endl;
 	delete [] horde;
 	std::cout << std::endl;

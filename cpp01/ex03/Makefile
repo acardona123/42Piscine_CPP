@@ -1,7 +1,7 @@
-NAME		=	unnecessary_violence
+NAME		=	unnecessaryViolence
 
 CC			=	c++
-CFLAGS		=	-Werror -Wall -Wextra -std=c++98
+CFLAGS		=	-Werror -Wall -Wextra -std=c++98 
 DEPSFLAG	=	-MMD
 
 FILES		=	main \
@@ -25,12 +25,15 @@ fclean : clean
 
 re : fclean all
 
+run : all
+	./$(NAME)
+
 -include $(DEPS)
 
 $(NAME) : $(OBJ)
 	$(CC) $(CFLAGS) $(DEPSFLAG) $(OBJ) -o $(NAME)
 
-$(OBJ_DIR)/%.o : %.cpp
+$(OBJ_DIR)/%.o : %.cpp Makefile
 	@mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) $(DEPSFLAG) -c $< -o $@
 
