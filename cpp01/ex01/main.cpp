@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 17:10:06 by acardona          #+#    #+#             */
-/*   Updated: 2023/08/01 18:26:07 by acardona         ###   ########.fr       */
+/*   Updated: 2023/08/13 18:41:44 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,6 @@ static int _one_loop(void)
 		getline(std::cin, name);
 	}
 	std::cout << "=> results :" << std::endl;
-// 	std::cout << nb_zomb << name << std::endl;
-// }
-
 
 	Zombie	*horde;
 	horde = zombieHorde(nb_zomb, name);

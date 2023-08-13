@@ -1,13 +1,11 @@
-NAME		=	BraiiiiiiinnnzzzZ
+NAME		=	harl
 
 CC			=	c++
 CFLAGS		=	-Werror -Wall -Wextra -std=c++98
 DEPSFLAG	=	-MMD
 
 FILES		=	main \
-				newZombie \
-				randomChump \
-				Zombie
+				Harl
 
 SRC			=	$(addsuffix .cpp, $(FILES))
 

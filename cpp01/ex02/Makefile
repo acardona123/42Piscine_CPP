@@ -36,7 +36,4 @@ $(OBJ_DIR)/%.o : %.cpp
 	@mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-
-
-
 .PHONY : all clean fclean re
