@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 16:58:29 by acardona          #+#    #+#             */
-/*   Updated: 2023/08/27 18:51:31 by acardona         ###   ########.fr       */
+/*   Updated: 2023/08/27 18:52:44 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,16 @@
 
 static void	generateDogThoughts(std::string ideas[BRAIN_SIZE]);
 static void	generateCatThoughts(std::string ideas[BRAIN_SIZE]);
-static int generateAnimalArray(Animal *array[ARRAY_SIZE]);
-static void	destroyAnimalArray (Animal *array[ARRAY_SIZE]);
-static void generalTestOfAnimals( void );
+static int generateAanimalArray(Aanimal *array[ARRAY_SIZE]);
+static void	destroyAanimalArray (Aanimal *array[ARRAY_SIZE]);
+static void generalTestOfAanimals( void );
 
 
 int main(void)
 {
-	Animal	*array[ARRAY_SIZE];
+	Aanimal	*array[ARRAY_SIZE];
 
-	generateAnimalArray(array);	
+	generateAanimalArray(array);	
 	std::cout << std::endl;
 	for (int i = 0; i < ARRAY_SIZE; i++)
 	{
@@ -38,10 +38,10 @@ int main(void)
 		array[i]->makeSound();
 	}
 	std::cout << std::endl;
-	destroyAnimalArray(array);
+	destroyAanimalArray(array);
 	
 	std::cout << std::endl << std::endl;
-	generalTestOfAnimals();
+	generalTestOfAanimals();
 	
 	return (0);
 }
@@ -98,7 +98,7 @@ static void	generateCatThoughts(std::string ideas[BRAIN_SIZE])
 
 // ==== Array generation and destruction ====
 
-static int generateAnimalArray(Animal *array[ARRAY_SIZE])
+static int generateAanimalArray(Aanimal *array[ARRAY_SIZE])
 {
 	int	i(0);
 	
@@ -135,7 +135,7 @@ static int generateAnimalArray(Animal *array[ARRAY_SIZE])
 	return (0);
 }
 
-static void	destroyAnimalArray (Animal *array[ARRAY_SIZE])
+static void	destroyAanimalArray (Aanimal *array[ARRAY_SIZE])
 {
 	for (int i = 0; i < ARRAY_SIZE; i++)
 	{
@@ -150,21 +150,21 @@ static void	destroyAnimalArray (Animal *array[ARRAY_SIZE])
 
 // ==== General tests ====
 
-static void generalTestOfAnimals( void )
+static void generalTestOfAanimals( void )
 {
-	std::cout << " === Animal ====" << std::endl << std::endl;
+	std::cout << " === Aanimal ====" << std::endl << std::endl;
 
-	std::cout << "=> Class Animal : " << std::endl;
-	const Animal* theAnimal = new Animal();
-	std::cout << theAnimal->getType() << " says:" << std::endl;
-	theAnimal->makeSound();
-	delete theAnimal;
-	std::cout << std::endl;
+	// std::cout << "=> Class Aanimal : " << std::endl;
+	// const Aanimal* theAanimal = new Aanimal();
+	// std::cout << theAanimal->getType() << " says:" << std::endl;
+	// theAanimal->makeSound();
+	// delete theAanimal;
+	// std::cout << std::endl;
 
 	std::cout << "=> Class Dog : " << std::endl;
 	std::string			dogThougts[BRAIN_SIZE];
 	generateDogThoughts(dogThougts);
-	const Animal* theDog = new Dog(dogThougts);
+	const Aanimal* theDog = new Dog(dogThougts);
 	std::cout << theDog->getType() << " says:" << std::endl;
 	theDog->makeSound();
 	delete theDog;
@@ -173,8 +173,8 @@ static void generalTestOfAnimals( void )
 	std::cout << "=> Class Cat : " << std::endl;
 	std::string			catThougts[BRAIN_SIZE];
 	generateCatThoughts(catThougts);
-	const Animal* theCat = new Cat(catThougts);
-	// const Animal* theCat = new Cat();
+	const Aanimal* theCat = new Cat(catThougts);
+	// const Aanimal* theCat = new Cat();
 	std::cout << theCat->getType() << " says:" << std::endl;
 	theCat->makeSound();
 	delete theCat;
