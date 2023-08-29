@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 14:55:03 by alexcardona       #+#    #+#             */
-/*   Updated: 2023/08/14 00:25:22 by acardona         ###   ########.fr       */
+/*   Updated: 2023/08/29 18:17:21 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@ int main( void )
 	Zombie	z0("First");
 	Zombie	*pZ1;
 	
-	std::cout << "manual display : ";
+	std::cout << "manual display : " << std::endl;
 	z0.announce();
+	std::cout << std::endl;
 	
 	pZ1 = newZombie("Second");
 	if (pZ1)

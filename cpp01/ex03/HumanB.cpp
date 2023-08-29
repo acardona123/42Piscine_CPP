@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 16:45:00 by acardona          #+#    #+#             */
-/*   Updated: 2023/08/04 16:53:17 by acardona         ###   ########.fr       */
+/*   Updated: 2023/08/29 18:37:20 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 HumanB::HumanB(std::string new_name) : name(new_name), weapon(NULL)
 {
+	std::cout << "[HumanB] Param constructor called for " << new_name << std::endl;
 	return ;
 }
 
 HumanB::~HumanB( void )
 {
+	std::cout << "[HumanB] Default destructor called for " << this->name << std::endl;
 	return ;
 }
 

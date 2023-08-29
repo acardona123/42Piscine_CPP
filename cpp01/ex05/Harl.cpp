@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 16:24:23 by acardona          #+#    #+#             */
-/*   Updated: 2023/08/13 18:33:52 by acardona         ###   ########.fr       */
+/*   Updated: 2023/08/29 18:54:50 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 Harl::Harl ( void )
 {
+	std::cout << "[Harl] Default constructor called" << std::endl;
 	return ;
 }
 
 Harl::~Harl ( void )
 {
+	std::cout << "[Harl] Default destructor called" << std::endl;
 	return ;
 }
 

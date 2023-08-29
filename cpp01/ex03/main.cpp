@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 16:53:28 by acardona          #+#    #+#             */
-/*   Updated: 2023/08/04 16:54:49 by acardona         ###   ########.fr       */
+/*   Updated: 2023/08/29 18:36:49 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int main()
 		club.setType("some other type of club");
 		bob.attack();
 	}
+	std::cout << std::endl;
 	{
 		Weapon club = Weapon("crude spiked club");
 		HumanB jim("Jim");

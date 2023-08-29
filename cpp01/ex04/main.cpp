@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 19:17:34 by acardona          #+#    #+#             */
-/*   Updated: 2023/08/14 00:46:20 by acardona         ###   ########.fr       */
+/*   Updated: 2023/08/29 18:51:43 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,6 @@ bool	replace_in_one_line(std::ifstream *infile, std::ofstream *outfile, std::str
 
 make;
 echo -e "this is a short text. it contains the kewyword "this".\nWe try to change this by THIS.\nis it doable ?\n" > test_input;
-./sed_is_for_loosers test_input this THIS
+./sedIsForLoosers test_input this THIS
 
 */

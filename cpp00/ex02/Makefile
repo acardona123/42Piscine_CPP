@@ -1,10 +1,11 @@
-NAME		=	megaphone
+NAME		=	ex02
 
 CC			=	c++
 CFLAGS		=	-std=c++98 -Werror -Wall -Wextra
 DEPSFLAG	=	-MMD
 
-FILES		=	megaphone
+FILES		=	tests \
+				Account 
 
 SRC			=	$(addsuffix .cpp, $(FILES))
 
@@ -21,6 +22,9 @@ fclean : clean
 	rm -rf $(NAME)
 
 re : fclean all
+
+run : all
+	./$(NAME)
 
 -include $(DEPS)
 

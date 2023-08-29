@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexcardona <alexcardona@student.42.fr>    +#+  +:+       +#+        */
+/*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 18:12:41 by alexcardona       #+#    #+#             */
-/*   Updated: 2023/08/01 01:22:51 by alexcardona      ###   ########.fr       */
+/*   Updated: 2023/08/29 17:21:20 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 Contact::Contact(void)
 {
+	std::cout << "[Contact] Default constructor called" << std::endl;
 	this->_first_name = "";
 	this->_last_name = "";
 	this->_nickname = "";
@@ -21,7 +22,10 @@ Contact::Contact(void)
 	this->_secret = "";
 }
 
-Contact::~Contact(void){}
+Contact::~Contact(void)
+{
+	std::cout << "[Contact] Default destructor called" << std::endl;
+}
 
 
 /*============ GET ============*/

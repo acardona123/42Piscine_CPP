@@ -15,5 +15,7 @@ int main()
 			book.phonebook_search();
 		else if (!line.compare("EXIT"))
 			return 0;
+		else
+		 	std::cout << "  command unknown" << std::endl;
 	}
 }
