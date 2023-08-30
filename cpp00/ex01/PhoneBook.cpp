@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 20:20:14 by alexcardona       #+#    #+#             */
-/*   Updated: 2023/08/29 17:51:52 by acardona         ###   ########.fr       */
+/*   Updated: 2023/08/30 18:00:30 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,14 @@ PhoneBook::~PhoneBook(void)
 
 /* ============= _phonebook_add ================*/
 
-void	PhoneBook::phonebook_add(void)
+int	PhoneBook::phonebook_add(void)
 {
-	this->_repertory[this->_index].set_all();
+	if (this->_repertory[this->_index].set_all())
+		return (1);
 	std::cout << "Contact added." << std::endl;
 	this->_index++;
 	this->_index %= 8;
+	return (0);
 }
 
 /* ---------- _phonebook_add end ----------*/
@@ -92,6 +94,11 @@ int	_search_get_input_index(int nb_contacts)
 	while (1)
 	{
 		getline(std::cin, input);
+		if (std::cin.bad() || std::cin.eof())
+		{
+			std::cout << std::endl << INPUT_ERROR_MSG << std::endl;
+			return (-1);
+		}
 		if (input.size() != 1 || !std::isdigit(input[0]) || input[0] - '0' >= nb_contacts)
 			std::cout << "\tIncorrect index, please enter an index in [0;" << nb_contacts - 1 << "] :" << std::endl;
 		else
@@ -99,13 +106,15 @@ int	_search_get_input_index(int nb_contacts)
 	}
 }
 
-void	PhoneBook::phonebook_search(void) const
+int	PhoneBook::phonebook_search(void) const
 {
 
 	int	nb_contacts = _search_print_contact_list(this->_repertory);
 	if (!nb_contacts)
-		return ;
+		return (0);
 	int	index_input = _search_get_input_index(nb_contacts);
+	if (index_input == -1)
+		return (1);
 	std::cout << "-> Your contact data is :" << std::endl;
 	std::cout << "  - first name : " << this->_repertory[index_input].get_first_name() << std::endl;
 	std::cout << "  - last name : " << this->_repertory[index_input].get_last_name() << std::endl;
@@ -113,6 +122,7 @@ void	PhoneBook::phonebook_search(void) const
 	std::cout << "  - phone number : " << this->_repertory[index_input].get_phone() << std::endl;
 	std::cout << "  - darkest secret : " << this->_repertory[index_input].get_secret() << std::endl;
 	std::cout << "End of the research." << std::endl;
+	return (0);
 }
 
 /* ----------- _phonebook_search end -----------*/

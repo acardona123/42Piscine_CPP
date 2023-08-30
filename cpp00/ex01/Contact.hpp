@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexcardona <alexcardona@student.42.fr>    +#+  +:+       +#+        */
+/*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 18:03:32 by alexcardona       #+#    #+#             */
-/*   Updated: 2023/07/29 20:29:22 by alexcardona      ###   ########.fr       */
+/*   Updated: 2023/08/30 18:00:30 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # include <iostream>
 # include <string>
+
+#ifndef INPUT_ERROR_MSG
+# define INPUT_ERROR_MSG "Input eof or faillure : exiting the program."
+#endif
 
 class Contact
 {
@@ -28,12 +32,12 @@ class Contact
 		std::string	get_phone(void) const;
 		std::string	get_secret(void) const;
 		//set
-		void		set_all(void);
-		void		set_first_name(void);
-		void		set_last_name(void);
-		void		set_nickname(void);
-		void		set_phone_number(void);
-		void		set_secret(void);		
+		int		set_all(void);
+		int		set_first_name(void);
+		int		set_last_name(void);
+		int		set_nickname(void);
+		int		set_phone_number(void);
+		int		set_secret(void);		
 	private:
 		std::string _first_name;
 		std::string _last_name;

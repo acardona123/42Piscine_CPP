@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexcardona <alexcardona@student.42.fr>    +#+  +:+       +#+        */
+/*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 17:58:20 by alexcardona       #+#    #+#             */
-/*   Updated: 2023/07/30 00:40:26 by alexcardona      ###   ########.fr       */
+/*   Updated: 2023/08/30 18:00:30 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,17 @@
 
 # include "Contact.hpp"
 
+#ifndef INPUT_ERROR_MSG
+# define INPUT_ERROR_MSG "Input eof or faillure : exiting the program."
+#endif
+
 class	PhoneBook
 {
 	public :
 		PhoneBook(void);
 		~PhoneBook(void);
-		void	phonebook_add(void);
-		void	phonebook_search(void) const;
+		int	phonebook_add(void);
+		int	phonebook_search(void) const;
 	private :
 		int		_index;
 		Contact	_repertory[8];

@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 18:12:41 by alexcardona       #+#    #+#             */
-/*   Updated: 2023/08/29 17:21:20 by acardona         ###   ########.fr       */
+/*   Updated: 2023/08/30 18:01:25 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,18 +58,16 @@ std::string Contact::get_secret(void) const
 
 /*============= SET =============*/
 
-void	Contact::set_all(void)
+int	Contact::set_all(void)
 {
-	Contact::set_first_name();
-	Contact::set_last_name();
-	Contact::set_nickname();
-	Contact::set_phone_number();
-	Contact::set_secret();
+	if (Contact::set_first_name() || Contact::set_last_name() || Contact::set_nickname() || Contact::set_phone_number() || Contact::set_secret())
+		return (1);
+	return (0);
 }
 
 
 
-std::string	_set_a_name(std::string const name_of_name, std::string const special_chars)
+static int	_set_a_name(std::string *dest, std::string const name_of_name, std::string const special_chars)
 {
 	std::string	input;
 	char		error (0);
@@ -79,6 +77,11 @@ std::string	_set_a_name(std::string const name_of_name, std::string const specia
 	{
 		error = 0;
 		getline(std::cin, input);
+		if (std::cin.bad() || std::cin.eof())
+		{
+			std::cout << std::endl << INPUT_ERROR_MSG << std::endl;
+			return (1);
+		}
 		while (!input.empty() && input[0] == ' ')
 			input.erase(0, 1);
 		if (input.empty())
@@ -106,20 +109,21 @@ std::string	_set_a_name(std::string const name_of_name, std::string const specia
 		if (!error)
 			break;		
 	}
-	return (input);
+	*dest = input;
+	return (0);
 }
 
-void	Contact::set_first_name(void)
+int	Contact::set_first_name(void)
 {
-	this->_first_name = _set_a_name("first name", "-");
+	return (_set_a_name(&this->_first_name, "first name", "-"));
 }
 
-void	Contact::set_last_name(void)
+int	Contact::set_last_name(void)
 {
-	this->_last_name = _set_a_name("last name", " -\'");
+	return (_set_a_name(&this->_last_name, "last name", " -\'"));
 }
 
-void	Contact::set_nickname(void)
+int	Contact::set_nickname(void)
 {
 	std::string input;
 
@@ -127,6 +131,11 @@ void	Contact::set_nickname(void)
 	while (1)
 	{
 		getline(std::cin, input);
+		if (std::cin.bad() || std::cin.eof())
+		{
+			std::cout << std::endl << INPUT_ERROR_MSG << std::endl;
+			return (1);
+		}
 		if (input.empty())
 		{
 			std::cout << "\tThe nickname cannot be empty" << std::endl << " \tPlease retry : ";
@@ -136,9 +145,10 @@ void	Contact::set_nickname(void)
 			break;
 	}
 	this->_nickname = input;
+	return (0);
 }
 
-void	Contact::set_phone_number(void)
+int	Contact::set_phone_number(void)
 {
 	std::string input;
 	bool		error;
@@ -148,6 +158,11 @@ void	Contact::set_phone_number(void)
 	{
 		error = false;
 		getline(std::cin, input);
+		if (std::cin.bad() || std::cin.eof())
+		{
+			std::cout << std::endl << INPUT_ERROR_MSG << std::endl;
+			return (1);
+		}
 		if (input.size() != 10)
 			error = true;
 		else
@@ -167,9 +182,10 @@ void	Contact::set_phone_number(void)
 			break;
 	}
 	this->_phone_number = input;
+	return (0);
 }
 
-void	Contact::set_secret(void)
+int	Contact::set_secret(void)
 {
 	std::string input;
 	
@@ -177,6 +193,11 @@ void	Contact::set_secret(void)
 	while (1)
 	{
 		getline(std::cin, input);
+		if (std::cin.bad() || std::cin.eof())
+		{
+			std::cout << std::endl << INPUT_ERROR_MSG << std::endl;
+			return (1);
+		}
 		if (input.empty())
 		{
 			std::cout << "\tDon't be shy ! I know everybody have a darkest secret..." << std::endl << "\tI swear I won't tell it to anybody, tell it to me : ";
@@ -186,4 +207,5 @@ void	Contact::set_secret(void)
 			break;
 	}
 	this->_secret = input;
+	return (0);
 }

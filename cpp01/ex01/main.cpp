@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 17:10:06 by acardona          #+#    #+#             */
-/*   Updated: 2023/08/14 00:29:32 by acardona         ###   ########.fr       */
+/*   Updated: 2023/08/30 18:08:10 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@ static int _one_loop(void)
 	int			nb_zomb;
 	while (!(std::cin >> nb_zomb))
 	{
+		if (std::cin.bad() || std::cin.eof())
+		{
+			std::cout << std::endl << "Input eof or faillure : exiting the program." << std::endl;
+			return (1);
+		}
 		std::cout << "  Invalid input. Please enter a numeric value : ";
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -26,11 +31,21 @@ static int _one_loop(void)
 	
 	std::string name("");
 	std::cout << "- name : ";
-	getline(std::cin, name);;
+	getline(std::cin, name);
+	if (std::cin.bad() || std::cin.eof())
+	{
+		std::cout << std::endl << "Input eof or faillure : exiting the program." << std::endl;
+		return (1);
+	}
 	while (name.empty())
 	{
 		std::cout << "  Invalid input. A name cannot be empty. Please enter a name : ";
 		getline(std::cin, name);
+		if (std::cin.bad() || std::cin.eof())
+		{
+			std::cout << std::endl << "Input eof or faillure : exiting the program." << std::endl;
+			return (1);
+		}
 	}
 	std::cout << "=> results :" << std::endl;
 
@@ -54,7 +69,8 @@ int	main(void)
 {
 	while (1)
 	{
-		_one_loop();
+		if (_one_loop())
+			return (0);
 		std::string other_sim;
 		std::cout << std::endl << "CONTINUE ANOTHER TEST ? (y/n)";
 		std::cin >> other_sim;
