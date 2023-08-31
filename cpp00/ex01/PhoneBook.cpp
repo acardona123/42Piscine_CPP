@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 20:20:14 by alexcardona       #+#    #+#             */
-/*   Updated: 2023/08/30 18:00:30 by acardona         ###   ########.fr       */
+/*   Updated: 2023/08/31 14:30:35 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ int	_search_get_input_index(int nb_contacts)
 			return (-1);
 		}
 		if (input.size() != 1 || !std::isdigit(input[0]) || input[0] - '0' >= nb_contacts)
-			std::cout << "\tIncorrect index, please enter an index in [0;" << nb_contacts - 1 << "] :" << std::endl;
+			std::cout << "\tIncorrect index, please enter an index in [0;" << nb_contacts - 1 << "] : ";
 		else
 		 	return (input[0] - '0');
 	}
