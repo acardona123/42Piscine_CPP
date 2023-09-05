@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 15:29:58 by acardona          #+#    #+#             */
-/*   Updated: 2023/08/30 17:08:43 by acardona         ###   ########.fr       */
+/*   Updated: 2023/09/05 19:28:14 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ DiamondTrap::DiamondTrap( void ) : ClapTrap( "unknown"), FragTrap("unknown"), Sc
 	this->_HitPoints = FragTrap::_HitPoints;
 	this->_EnergyPoints = ScavTrap::_EnergyPoints;
 	this->_AttackDamage = FragTrap::_AttackDamage;
-	std::cout << "[DiamondTrap] Default constructor called" << std::endl;
+	std::cout << "[DiamondTrap] Default constructor called for unknown" << std::endl;
 }
 
-DiamondTrap::DiamondTrap( std::string name ) : ClapTrap( name + "_clap_name" ), FragTrap( name ), ScavTrap( name )
+DiamondTrap::DiamondTrap( std::string name ) : ClapTrap( name + "_clap_name" ), FragTrap( name + "_clap_name" ), ScavTrap( name + "_clap_name" )
 {
 	_Name = name;
 	// this->_HitPoints = INIT_FRAGTRAP_HIT;
@@ -35,13 +35,13 @@ DiamondTrap::DiamondTrap( std::string name ) : ClapTrap( name + "_clap_name" ), 
 	this->_HitPoints = FragTrap::_HitPoints;
 	this->_EnergyPoints = ScavTrap::_EnergyPoints;
 	this->_AttackDamage = FragTrap::_AttackDamage;
-	std::cout << "[DiamondTrap] Param constructor called" << std::endl;
+	std::cout << "[DiamondTrap] Param constructor called for " << name << std::endl;
 }
 
 DiamondTrap::DiamondTrap( DiamondTrap const & model) : ClapTrap(model), FragTrap(model), ScavTrap(model)
 {
 	this->_Name = model._Name;
-	std::cout << "[DiamondTrap] Copy constructor called" << std::endl;
+	std::cout << "[DiamondTrap] Copy constructor called for " << model._Name << std::endl;
 }
 
 DiamondTrap & DiamondTrap::operator=( DiamondTrap const & model)

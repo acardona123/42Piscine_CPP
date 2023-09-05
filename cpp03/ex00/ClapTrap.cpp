@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 17:20:26 by acardona          #+#    #+#             */
-/*   Updated: 2023/08/25 16:36:33 by acardona         ###   ########.fr       */
+/*   Updated: 2023/09/05 18:28:51 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ ClapTrap::~ClapTrap( void )
 
 ClapTrap & ClapTrap::operator=( ClapTrap const & elem)
 {
+	if (this == &elem)
+		return (*this);
 	this->_Name = elem._Name;
 	this->_EnergyPoints = elem._EnergyPoints;
 	this->_HitPoints =	 elem._HitPoints;
@@ -63,7 +65,7 @@ void	ClapTrap::attack(const std::string& target)
 {
 	if (this->_EnergyPoints == 0)
 	{	
-		std::cout << "ClapTrap " << this->_Name << " tries to attack " << target << " but dosen't have enough energy" << std::endl;
+		std::cout << "ClapTrap " << this->_Name << " tries to attack " << target << " but doesn't have enough energy" << std::endl;
 		return ;
 	}
 	std::cout << "ClapTrap " << this->_Name << " attacks " << target << ", causing " << this->_AttackDamage << " points of damage!" << std::endl;
@@ -85,9 +87,9 @@ void	ClapTrap::takeDamage(unsigned int amount)
 void ClapTrap::beRepaired(unsigned int amount)
 {
 	//security if adding amount points to HitPoints leads to a total amount of Hitpoints superior to 10 ? Undefined behavior
-	//using one energypoint per _EnergyPoint recovered or per entiere reparation
+	//using one _EnergyPoint per _HitPoint recovered or per entiere reparation The second option has been chosen here, otherwise use the commentray code
 	if (this->_EnergyPoints == 0)
-		std::cout << "ClapTrap " << this->_Name << " tries to attack repaire itself but dosen't have enough energy" << std::endl;
+		std::cout << "ClapTrap " << this->_Name << " tries to attack repaire itself but doesn't have enough energy" << std::endl;
 	/*
 	else if (this->_EnergyPoints < amount)
 	{
@@ -99,7 +101,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 	else
 	{
 		std::cout << "ClapTrap " << this->_Name << " makes a " << amount << " Hit points reparation." << std::endl;
-		this->_EnergyPoints -= 1; // amount
+		this->_EnergyPoints -= 1; // -= amount
 		this->_HitPoints += amount;
 	}
 }

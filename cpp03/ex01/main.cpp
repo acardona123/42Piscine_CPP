@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 15:30:34 by acardona          #+#    #+#             */
-/*   Updated: 2023/08/25 16:16:21 by acardona         ###   ########.fr       */
+/*   Updated: 2023/09/05 19:11:29 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,8 @@ int main(void)
 	std::cout << std::endl;
 
 	third = second;
-	second.showStatus();
+	third.showStatus();
 
-	std::cout << std::endl;
-
-	std::cout << std::endl;
+	std::cout << std::endl << std::endl;
 	return (0);
 }

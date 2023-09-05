@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 14:01:32 by acardona          #+#    #+#             */
-/*   Updated: 2023/08/25 16:39:34 by acardona         ###   ########.fr       */
+/*   Updated: 2023/09/05 19:02:48 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,11 @@ ScavTrap::~ScavTrap( void )
 
 ScavTrap & ScavTrap::operator=( ScavTrap const & elem)
 {
-	ClapTrap::operator=(elem);
-	this->_Mode = elem._Mode;
+	if (this != &elem)
+	{
+		ClapTrap::operator=(elem);
+		this->_Mode = elem._Mode;
+	}
 	return (*this);
 }
 

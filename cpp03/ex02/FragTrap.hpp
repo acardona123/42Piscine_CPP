@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 14:02:19 by acardona          #+#    #+#             */
-/*   Updated: 2023/08/25 16:51:23 by acardona         ###   ########.fr       */
+/*   Updated: 2023/09/05 19:18:14 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ class FragTrap : public ClapTrap
 {
 	public:
 		FragTrap( std::string name );
-		FragTrap( FragTrap const & model); 
+		FragTrap( FragTrap const & model ); 
 		~FragTrap( void );
-		FragTrap & operator=( FragTrap const & model);
+		FragTrap & operator=( FragTrap const & model );
 		void	highFivesGuys(void);
 	private:
 		FragTrap( void );

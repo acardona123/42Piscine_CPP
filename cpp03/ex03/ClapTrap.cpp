@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 17:20:26 by acardona          #+#    #+#             */
-/*   Updated: 2023/08/25 16:36:33 by acardona         ###   ########.fr       */
+/*   Updated: 2023/09/05 18:56:55 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	ClapTrap::attack(const std::string& target)
 {
 	if (this->_EnergyPoints == 0)
 	{	
-		std::cout << "ClapTrap " << this->_Name << " tries to attack " << target << " but dosen't have enough energy" << std::endl;
+		std::cout << "ClapTrap " << this->_Name << " tries to attack " << target << " but doesn't have enough energy" << std::endl;
 		return ;
 	}
 	std::cout << "ClapTrap " << this->_Name << " attacks " << target << ", causing " << this->_AttackDamage << " points of damage!" << std::endl;
@@ -87,7 +87,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 	//security if adding amount points to HitPoints leads to a total amount of Hitpoints superior to 10 ? Undefined behavior
 	//using one energypoint per _EnergyPoint recovered or per entiere reparation
 	if (this->_EnergyPoints == 0)
-		std::cout << "ClapTrap " << this->_Name << " tries to attack repaire itself but dosen't have enough energy" << std::endl;
+		std::cout << "ClapTrap " << this->_Name << " tries to attack repaire itself but doesn't have enough energy" << std::endl;
 	/*
 	else if (this->_EnergyPoints < amount)
 	{

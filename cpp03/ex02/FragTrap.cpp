@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 14:01:32 by acardona          #+#    #+#             */
-/*   Updated: 2023/08/25 16:51:29 by acardona         ###   ########.fr       */
+/*   Updated: 2023/09/05 19:19:01 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@
 
 FragTrap::FragTrap( void ):ClapTrap()
 {
+	std::cout << "[FragTrap] Default constructor called" << std::endl;
 	this->_HitPoints = INIT_FRAGTRAP_HIT;
 	this->_EnergyPoints = INIT_FRAGTRAP_ENERGY;
 	this->_AttackDamage = INIT_FRAGTRAP_ATTACK;
-	std::cout << "[FragTrap] Default constructor called" << std::endl;
 }
 
 FragTrap::FragTrap( std::string name ) : ClapTrap(name)
 {
+	std::cout << "[FragTrap] Param constructor called for " << name << std::endl;
 	this->_HitPoints = INIT_FRAGTRAP_HIT;
 	this->_EnergyPoints = INIT_FRAGTRAP_ENERGY;
 	this->_AttackDamage = INIT_FRAGTRAP_ATTACK;
-	std::cout << "[FragTrap] Param constructor called for " << name << std::endl;
 }
 
 FragTrap::FragTrap( FragTrap const & elem ) : ClapTrap(elem)
@@ -42,7 +42,8 @@ FragTrap::~FragTrap( void )
 
 FragTrap & FragTrap::operator=( FragTrap const & elem)
 {
-	ClapTrap::operator=(elem);
+	if (this != &elem)
+		ClapTrap::operator=(elem);
 	return (*this);
 }
 
