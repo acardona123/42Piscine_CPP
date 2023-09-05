@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 16:16:48 by acardona          #+#    #+#             */
-/*   Updated: 2023/08/20 01:04:59 by acardona         ###   ########.fr       */
+/*   Updated: 2023/09/03 15:50:51 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -224,14 +224,14 @@ Fixed	Fixed::operator/( Fixed const & n) const
 	return (Fixed(value));
 }
 
-Fixed	Fixed::operator++( int )
+Fixed	Fixed::operator++( int ) //postfixe
 {
 	Fixed	cpy = *this;
 	this->_rawBits += 1 ;
 	return (cpy);
 }
 
-Fixed &	Fixed::operator++( void )
+Fixed &	Fixed::operator++( void )//prefixe
 {
 	this->_rawBits += 1 ;
 	return (*this);

@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 11:11:17 by acardona          #+#    #+#             */
-/*   Updated: 2023/08/20 01:23:27 by acardona         ###   ########.fr       */
+/*   Updated: 2023/09/03 15:45:41 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,9 +94,11 @@ void	my_tests(Fixed & a, Fixed & b)
 	std::cout << a << " + " << b << " : " << ca + cb << std::endl << std::endl;
 
 	std::cout << "min(a, b) : " << Fixed::min(a, b) << std::endl;
-	std::cout << "min(ca, cb) : " << Fixed::min(ca, cb) << std::endl << std::endl;
+	std::cout << "min(ca, cb) : " << Fixed::min(ca, cb) << std::endl;
+	std::cout << "min(ca, b) : " << Fixed::min(ca, b) << std::endl << std::endl;
 	std::cout << "max(a, b) : " << Fixed::max(a, b) << std::endl;
-	std::cout << "max(ca, cb) : " << Fixed::max(ca, cb) << std::endl << std::endl;
+	std::cout << "max(ca, cb) : " << Fixed::max(ca, cb) << std::endl;
+	std::cout << "max(a, cb) : " << Fixed::max(a, cb) << std::endl << std::endl;
 	
 	std::cout << "++" << a << " : " << ++a << " -> " << a << std::endl;
 	std::cout << "--" << a << " : " << --a << " -> " << a << std::endl;

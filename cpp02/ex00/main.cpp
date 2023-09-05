@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 16:16:11 by acardona          #+#    #+#             */
-/*   Updated: 2023/08/14 19:26:47 by acardona         ###   ########.fr       */
+/*   Updated: 2023/09/03 15:28:43 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,12 @@ int main( void ) {
 Fixed a;
 Fixed b( a );
 Fixed c;
+
 c = b;
+
 std::cout << a.getRawBits() << std::endl;
 std::cout << b.getRawBits() << std::endl;
 std::cout << c.getRawBits() << std::endl;
+
 return 0;
 }
