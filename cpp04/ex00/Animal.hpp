@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 15:35:46 by acardona          #+#    #+#             */
-/*   Updated: 2023/08/26 17:21:22 by acardona         ###   ########.fr       */
+/*   Updated: 2023/09/11 21:15:10 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Animal
 {
 	public:
 		Animal( void );
-		Animal ( std::string type);
+		Animal ( std::string type );
 		Animal (Animal const & model);
 		virtual ~Animal( void );
 		Animal & operator=(Animal const & model);

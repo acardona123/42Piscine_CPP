@@ -6,13 +6,14 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 16:58:29 by acardona          #+#    #+#             */
-/*   Updated: 2023/08/27 18:51:31 by acardona         ###   ########.fr       */
+/*   Updated: 2023/09/11 21:59:25 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <ctime>
 
 #include "Dog.hpp"
 #include "Cat.hpp"
@@ -28,9 +29,13 @@ static void generalTestOfAnimals( void );
 
 int main(void)
 {
+	srand (time(NULL));
+	
+	std::cout << " ==== Array tests ====" << std::endl << std::endl;
 	Animal	*array[ARRAY_SIZE];
 
-	generateAnimalArray(array);	
+	if (generateAnimalArray(array))
+		return (1);	
 	std::cout << std::endl;
 	for (int i = 0; i < ARRAY_SIZE; i++)
 	{
@@ -152,7 +157,7 @@ static void	destroyAnimalArray (Animal *array[ARRAY_SIZE])
 
 static void generalTestOfAnimals( void )
 {
-	std::cout << " === Animal ====" << std::endl << std::endl;
+	std::cout << " === Animal tests ====" << std::endl << std::endl;
 
 	std::cout << "=> Class Animal : " << std::endl;
 	const Animal* theAnimal = new Animal();

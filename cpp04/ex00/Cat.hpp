@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 16:37:19 by acardona          #+#    #+#             */
-/*   Updated: 2023/08/27 12:03:52 by acardona         ###   ########.fr       */
+/*   Updated: 2023/09/11 21:20:26 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Cat : public Animal
 {
 	public:
 		Cat ( void );
-		Cat ( Cat const & model);
+		Cat ( Cat const & model );
 		~Cat ( void );
 		Cat & operator=(Cat const & model);
 		void makeSound( void ) const;

@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 16:36:39 by acardona          #+#    #+#             */
-/*   Updated: 2023/08/27 18:37:38 by acardona         ###   ########.fr       */
+/*   Updated: 2023/09/11 22:03:12 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Cat::Cat( std::string ideas[BRAIN_SIZE] ) : Aanimal( "Cat" )
 	}
 }
 
-Cat::Cat ( Cat const & model) : Aanimal( model.type )
+Cat::Cat ( Cat const & model) : Aanimal( model )
 {
 	std::cout << CONSTRUCTOR_COLOR <<  "[Cat] Copy constructor called for " << model.type << CBLACK << std::endl;
 	this->_brain = new Brain(model._brain->ideas);

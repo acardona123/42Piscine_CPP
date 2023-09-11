@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 16:26:28 by acardona          #+#    #+#             */
-/*   Updated: 2023/08/27 16:46:51 by acardona         ###   ########.fr       */
+/*   Updated: 2023/09/11 21:29:11 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Dog::Dog( std::string ideas[BRAIN_SIZE] ) : Animal( "Dog" )
 	}
 }
 
-Dog::Dog ( Dog const & model) : Animal( model.type )
+Dog::Dog ( Dog const & model) : Animal( model )
 {
 	std::cout << CONSTRUCTOR_COLOR <<  "[Dog] Copy constructor called for " << model.type << CBLACK << std::endl;
 	this->_brain = new Brain(model._brain->ideas);

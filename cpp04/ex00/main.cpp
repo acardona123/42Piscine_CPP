@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 16:41:03 by acardona          #+#    #+#             */
-/*   Updated: 2023/08/27 15:32:54 by acardona         ###   ########.fr       */
+/*   Updated: 2023/09/11 21:24:54 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,20 +43,21 @@ void testAnimals( void )
 	delete theAnimal;
 	std::cout << std::endl;
 
+	std::cout << "=> Class Cat : " << std::endl;
+	const Animal* theCat = new Cat();
+	std::cout << theCat->getType() << " says:" << std::endl;
+	theCat->makeSound(); //will output the cat sound!
+	Cat first;
+	Cat second(first);
+	delete theCat;
+	std::cout << std::endl;
+	
 	std::cout << "=> Class Dog : " << std::endl;
 	const Animal* theDog = new Dog();
 	std::cout << theDog->getType() << " says:" << std::endl;
 	theDog->makeSound();
 	delete theDog;
 	std::cout << std::endl;
-
-	std::cout << "=> Class Cat : " << std::endl;
-	const Animal* theCat = new Cat();
-	std::cout << theCat->getType() << " says:" << std::endl;
-	theCat->makeSound(); //will output the cat sound!
-	delete theCat;
-	std::cout << std::endl;
-	
 }
 
 void testWrongAnimals( void )

@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 11:47:11 by acardona          #+#    #+#             */
-/*   Updated: 2023/08/27 16:45:03 by acardona         ###   ########.fr       */
+/*   Updated: 2023/09/11 21:32:37 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Brain
 	public:
 		Brain( void );
 		Brain( std::string ideas[BRAIN_SIZE] );
-		Brain( Brain const & model);
+		Brain( Brain const & model );
 		~Brain( void );
 		Brain & operator=(Brain const & model);
 		

@@ -31,6 +31,9 @@ re : fclean all
 run : all
 	./$(NAME)
 
+test : all
+	valgrind --show-leak-kinds=all --leak-check=full --track-origins=yes -s ./$(NAME)
+
 -include $(DEPS)
 
 $(NAME) : $(OBJ)

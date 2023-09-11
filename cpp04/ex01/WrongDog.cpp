@@ -19,7 +19,7 @@ WrongDog::WrongDog( void ) : WrongAnimal( "WrongDog" )
 	std::cout << "[WrongDog] Default constructor called" << std::endl;
 }
 
-WrongDog::WrongDog ( WrongDog const & model) : WrongAnimal( model.type )
+WrongDog::WrongDog ( WrongDog const & model) : WrongAnimal( model )
 {
 	std::cout << "[WrongDog] Copy constructor called for " << model.type << std::endl;
 }
