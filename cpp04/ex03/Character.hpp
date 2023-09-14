@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 19:16:22 by acardona          #+#    #+#             */
-/*   Updated: 2023/09/08 19:30:49 by acardona         ###   ########.fr       */
+/*   Updated: 2023/09/14 14:02:27 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 
 #include "colors.hpp"
 
+#include "main.hpp"
 #include "IChararcter.hpp"
 #include "AMateria.hpp"
 #include "Ice.hpp"
 #include "Cure.hpp"
 
 #define INVENTORY_SIZE	4
-#define	COMMENTARY_ON	1
 
 class Character : public ICharacter
 {

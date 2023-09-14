@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 17:25:04 by acardona          #+#    #+#             */
-/*   Updated: 2023/09/11 21:12:16 by acardona         ###   ########.fr       */
+/*   Updated: 2023/09/14 15:19:13 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,21 @@
 #include "Character.hpp"
 #include "MateriaSource.hpp"
 
+
+static int _subject_main( void );
 static void _testMateria( void );
 static void _testCharacter( void );
 static void	_testMateriaSource(void);
 
+
 int main( void )
 {
+	if (1)
+	{
+		_subject_main();
+		std::cout << std::endl << std::endl;
+	}
+
 	if (1)
 	{
 		_testMateria();
@@ -38,7 +47,38 @@ int main( void )
 		_testMateriaSource();
 		std::cout << std::endl << std::endl;
 	}
+	
+	if (1) //correction tests here...
+	{
+	}
+	
 	return (0);
+}
+
+
+static int _subject_main( void )
+{
+	std::cout << CYELLOW_H << "==== Tests main subject ====" << CBLACK << std::endl << std::endl;
+	{
+		IMateriaSource* src = new MateriaSource();
+		src->learnMateria(new Ice());
+		src->learnMateria(new Cure());
+		ICharacter* me = new Character("me");
+		AMateria* tmp;
+		tmp = src->createMateria("ice");
+		me->equip(tmp);
+		tmp = src->createMateria("cure");
+		me->equip(tmp);
+		ICharacter* bob = new Character("bob");
+		me->use(0, *bob);
+		me->use(1, *bob);
+		delete bob;
+		delete me;
+		delete src;
+	}
+	std::cout << std::endl << CYELLOW_H << "---- End: Tests main subject ----" << CBLACK << std::endl;
+	
+	return 0;
 }
 
 static void _testMateria( void )
@@ -257,10 +297,10 @@ static void	_testMateriaSource(void)
 			std::cout << CGREEN << "- Default construction of MateriaSource && Learning Materia:" << CBLACK << std::endl;
 			MateriaSource	source1;
 			_showMateriaContent(source1);
-			source1.learnMateria(&ice1);
-			source1.learnMateria(&cure1);
-			source1.learnMateria(&cure1);
-			source1.learnMateria(&ice1);
+			source1.learnMateria(new Ice);
+			source1.learnMateria(new Cure);
+			source1.learnMateria(new Ice);
+			source1.learnMateria(new Cure);
 			source1.learnMateria(&ice1);
 			_showMateriaContent(source1);
 		}
@@ -270,15 +310,15 @@ static void	_testMateriaSource(void)
 			std::cout << CGREEN << "- Copy construction of MateriaSource :" << CBLACK << std::endl;
 			std::cout << "~ Materia of reference :" << std::endl;
 			MateriaSource	source1;
-			source1.learnMateria(&ice1);
-			source1.learnMateria(&cure1);
-			source1.learnMateria(&cure1);
+			source1.learnMateria(new Ice);
+			source1.learnMateria(new Cure);
+			source1.learnMateria(new Ice);
 			_showMateriaContent(source1);
 			std::cout << "~ Copy Materia:" << std::endl;
 			MateriaSource	source2(source1);
 			_showMateriaContent(source2);
 			std::cout << "~ Modifying Copy Mat:" << std::endl;
-			source2.learnMateria(&ice1);
+			source2.learnMateria(new Ice);
 			_showMateriaContent(source2);
 			std::cout << "~ Assigning ref = copy:" << std::endl;
 			source1 = source2;
@@ -287,15 +327,14 @@ static void	_testMateriaSource(void)
 		std::cout << std::endl;
 
 		{
-			std::cout << CGREEN << "- Create Materia:" << CBLACK << std::endl;
-			std::cout << "~ Materia of reference :" << std::endl;
+			std::cout << CGREEN << "- Creates Materia:" << CBLACK << std::endl;
+			std::cout << "~ Creates MateriaSource filled with 3 Materias of reference :" << std::endl;
 			MateriaSource	source1;
-			source1.learnMateria(&ice1);
-			source1.learnMateria(&cure1);
-			source1.learnMateria(&cure1);
+			source1.learnMateria(new Ice);
+			source1.learnMateria(new Cure);
+			source1.learnMateria(new Ice);
 			_showMateriaContent(source1);
-			_showMateriaContent(source1);
-			std::cout << "~ Create materia from references :" << std::endl;
+			std::cout << "~ Creates materia from references :" << std::endl;
 			AMateria	*generated;
 			generated = source1.createMateria("test");
 			std::cout << generated << std::endl;

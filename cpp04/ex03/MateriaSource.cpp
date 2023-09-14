@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 15:42:43 by acardona          #+#    #+#             */
-/*   Updated: 2023/09/11 21:08:24 by acardona         ###   ########.fr       */
+/*   Updated: 2023/09/14 14:37:56 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,12 @@ MateriaSource::~MateriaSource( void )
 	for (int i = 0; i < MATERIA_MEMORY_SIZE; i++)
 	{
 		if (this->_saved[i])
+		{
+			for (int j = i + 1; j < MATERIA_MEMORY_SIZE; j++)//
+				if (this->_saved[i] == this->_saved[j])//
+					this->_saved[j] = NULL;//
 			delete (this->_saved[i]);
+		}
 	}
 	std::cout << CYELLOW << "   [MateriaSource] Default destructor called (end)" << CBLACK << std::endl;
 }
@@ -90,7 +95,7 @@ void MateriaSource::learnMateria(AMateria* model)
 		std::cout << "learnMateria: not enough memory to learn the materia " << model->getType() << std::endl;
 		return ;
 	}
-	this->_saved[i] = model->clone();
+	this->_saved[i] = model;//model->clone()
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type)
@@ -99,7 +104,8 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 	{
 		if (this->_saved[i] && this->_saved[i]->getType() == type)
 		{
-			std::cout << "Materia generated based on " << type << " model" << std::endl;
+			if (COMMENTARY_ON)
+				std::cout << CPURPLE << "Materia generated based on " << type << " model" << CBLACK << std::endl;
 			return (this->_saved[i]->clone());
 		}
 	}

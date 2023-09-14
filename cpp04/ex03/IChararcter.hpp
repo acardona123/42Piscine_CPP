@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 16:42:44 by acardona          #+#    #+#             */
-/*   Updated: 2023/09/08 19:31:07 by acardona         ###   ########.fr       */
+/*   Updated: 2023/09/14 14:02:43 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <string>
 #include <iostream>
 
+#include "main.hpp"
 #include "colors.hpp"
 
 // #include "AMateria.hpp"

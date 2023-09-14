@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 16:07:38 by acardona          #+#    #+#             */
-/*   Updated: 2023/09/08 19:54:45 by acardona         ###   ########.fr       */
+/*   Updated: 2023/09/14 14:40:35 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ AMateria::AMateria( void ) : _type("unknown")
 
 AMateria::AMateria( std::string const & type ) : _type(type)
 {
-	std::cout << CBLUE << "   [AMateria] Param constructor called" << CBLACK << std::endl;
+	std::cout << CBLUE << "   [AMateria] Param constructor called for " << type << CBLACK << std::endl;
 }
 
 AMateria::AMateria( AMateria const & model ) : _type(model.getType())

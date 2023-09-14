@@ -16,6 +16,7 @@
 #include <string>
 #include <iostream>
 
+#include "main.hpp"
 #include "colors.hpp"
 
 #include "AMateria.hpp"
