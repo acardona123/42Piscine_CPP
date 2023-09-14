@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 16:58:29 by acardona          #+#    #+#             */
-/*   Updated: 2023/09/11 22:07:24 by acardona         ###   ########.fr       */
+/*   Updated: 2023/09/14 11:18:46 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ static void generalTestOfAanimals( void );
 
 int main(void)
 {
+	// Aanimal notWorking;
+	
 	Aanimal	*array[ARRAY_SIZE];
 
 	generateAanimalArray(array);	
