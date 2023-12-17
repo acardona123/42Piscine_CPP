@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 19:04:08 by acardona          #+#    #+#             */
-/*   Updated: 2023/09/14 21:08:44 by acardona         ###   ########.fr       */
+/*   Updated: 2023/12/17 18:33:52 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,14 +63,14 @@ void	Bureaucrat::downGrade( void )
 {
 	if (this->_grade == LOWEST_GRADE)
 		throw(Bureaucrat::GradeTooLowException());
-	this->_grade++;
+	++this->_grade;
 }
 
 void Bureaucrat::upGrade( void )
 {
 	if (this->_grade == HIGHEST_GRADE)
 		throw(GradeTooHighException());
-	this->_grade--;
+	--this->_grade;
 }
 
 // ---- End: Accessors ----

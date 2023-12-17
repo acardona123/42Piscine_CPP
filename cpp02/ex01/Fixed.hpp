@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 16:17:14 by acardona          #+#    #+#             */
-/*   Updated: 2023/08/16 17:41:53 by acardona         ###   ########.fr       */
+/*   Updated: 2023/12/17 15:38:29 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Fixed
 		Fixed	( int const n );
 		Fixed	( float const f);
 		~Fixed	( void );
-		Fixed	& operator=( Fixed const & source);
+		Fixed	& operator=( Fixed const & source );
 		int		getRawBits( void ) const;
 		void	setRawBits( int const raw );
 		float	toFloat( void ) const;

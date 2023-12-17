@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 21:15:41 by acardona          #+#    #+#             */
-/*   Updated: 2023/09/18 16:30:35 by acardona         ###   ########.fr       */
+/*   Updated: 2023/09/14 23:12:20 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
 // ==== Canonical elements ====
 
-Form::Form( void ) : _name(""), _grade_signature(0), _grade_execution(0)
+AForm::AForm( void ) : _name(""), _grade_signature(0), _grade_execution(0)
 {
-	throw (Form::GradeTooLowException());
+	throw (AForm::GradeTooLowException());
 }
 
-Form::Form( std::string name, int grade_signature, int grade_execution ) : _name(name), _grade_signature(grade_signature), _grade_execution(grade_execution), _signed(false)
+AForm::AForm( std::string name, int grade_signature, int grade_execution, bool is_signed ) : _name(name), _grade_signature(grade_signature), _grade_execution(grade_execution), _signed(is_signed)
 {
 	if (grade_signature < HIGHEST_GRADE || grade_execution < HIGHEST_GRADE)
-		throw(Form::GradeTooHighException());
+		throw(AForm::GradeTooHighException());
 	if (grade_signature > LOWEST_GRADE || grade_execution > LOWEST_GRADE)
-		throw(Form::GradeTooLowException());
+		throw(AForm::GradeTooLowException());
 }
-Form::Form(Form const & model) : _name(model.getName()), _grade_signature(model.getGradeSignature()), _grade_execution(model.getGradeExecution()), _signed(model.getSigned())
+AForm::AForm(AForm const & model) : _name(model.getName()), _grade_signature(model.getGradeSignature()), _grade_execution(model.getGradeExecution()), _signed(model.getSigned())
 {
 }
 
-Form::~Form( void )
+AForm::~AForm( void )
 {
 }
 
-Form & Form::operator=(Form const & model)
+AForm & AForm::operator=(AForm const & model)
 {
 	if (this == & model)
 		return (*this);
@@ -48,22 +48,22 @@ Form & Form::operator=(Form const & model)
 
 // ==== Accessors ====
 
-std::string	Form::getName( void ) const
+std::string	AForm::getName( void ) const
 {
 	return (this->_name);
 }
 
-bool		Form::getSigned( void ) const
+bool		AForm::getSigned( void ) const
 {
 	return (this->_signed);
 }
 
-int			Form::getGradeSignature( void ) const
+int			AForm::getGradeSignature( void ) const
 {
 	return (this->_grade_signature);
 }
 
-int			Form::getGradeExecution( void ) const
+int			AForm::getGradeExecution( void ) const
 {
 	return (this->_grade_execution);
 }
@@ -74,15 +74,20 @@ int			Form::getGradeExecution( void ) const
 
 // ==== mumber functions ====
 
-void	Form::beSigned( Bureaucrat const & Bob)
+void	AForm::beSigned( Bureaucrat const & Bob)
 {
 	if (Bob.getGrade() > this->_grade_signature)
-		throw(Form::GradeTooLowException());
-	if (this->getSigned() && COMMENTARY_ON)
+		throw(AForm::GradeTooLowException());
+	if (this->getSigned())
 		std::cout << "* Signed again *" << std::endl;
-	else if (COMMENTARY_ON)
+	else
 		std::cout << "* Signed *" << std::endl;
 	this->_signed = true;
+}
+
+bool	AForm::checkExecGrade( Bureaucrat const & executor) const
+{
+	return (executor.getGrade() <= this->_grade_execution);
 }
 
 // ---- End: mumber functions ----
@@ -91,7 +96,7 @@ void	Form::beSigned( Bureaucrat const & Bob)
 
 // ==== streams redirections ====
 
-std::ostream & operator<<(std::ostream & o, Form const & elem)
+std::ostream & operator<<(std::ostream & o, AForm const & elem)
 {
 	std::cout << elem.getName() << ", grade signature : " << elem.getGradeSignature() << ", grade execution: " << elem.getGradeExecution() << ", signed: " << (elem.getSigned() ? "yes" : "no") << ".";
 	return (o);
@@ -103,14 +108,19 @@ std::ostream & operator<<(std::ostream & o, Form const & elem)
 
 // ==== Exceptions ====
 
-const char* Form::GradeTooHighException::what() const throw()
+const char* AForm::GradeTooHighException::what() const throw()
 {
 	return ("Grade too high\n");
 }
 
-const char* Form::GradeTooLowException::what() const throw()
+const char* AForm::GradeTooLowException::what() const throw()
 {
 	return ("Grade too low\n");
+}
+
+const char *AForm::FormNotSignedException::what() const throw()
+{
+	return ("Form not signed");
 }
 
 // ---- End: Exceptions ----

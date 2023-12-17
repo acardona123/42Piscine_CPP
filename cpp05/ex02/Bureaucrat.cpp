@@ -6,12 +6,12 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 19:04:08 by acardona          #+#    #+#             */
-/*   Updated: 2023/12/17 19:10:31 by acardona         ###   ########.fr       */
+/*   Updated: 2023/12/17 19:39:52 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 // ==== Canonical elements ====
 
@@ -79,17 +79,30 @@ void Bureaucrat::upGrade( void )
 	this->_grade--;
 }
 
-void	Bureaucrat::signForm( Form & form )
+void	Bureaucrat::signForm( AForm * form )
 {
-	if (form.getSigned())
-		std::cout << this->_name << " couldn't sign " << form.getName() << " because it's already signed." << std::endl;
-	else if (form.getGradeSignature() < this->_grade)
-		std::cout << this->_name << " couldn't sign " << form.getName() << " because his grade is to low." << std::endl;
+	if (form->getSigned())
+		std::cout << this->_name << " couldn't sign " << form->getName() << " because it's already signed." << std::endl;
+	else if (form->getGradeSignature() < this->_grade)
+		std::cout << this->_name << " couldn't sign " << form->getName() << " because his grade is to low." << std::endl;
 	else
 	{
-		std::cout << this->_name << " signed " << form.getName() << std::endl;
-		form.beSigned(*this);
+		std::cout << this->_name << " signed " << form->getName() << std::endl;
+		form->beSigned(*this);
 	}
+}
+
+void	Bureaucrat::executeForm(AForm *form)
+{
+	try
+	{
+		form->execute(*this);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << this->_name << " failed to execute " << form->getName() << ", cause: " << e.what() << std::endl;
+	}
+
 }
 
 // ---- End: mumber functions ----

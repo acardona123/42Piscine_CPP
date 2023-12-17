@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 19:05:20 by acardona          #+#    #+#             */
-/*   Updated: 2023/09/14 23:15:16 by acardona         ###   ########.fr       */
+/*   Updated: 2023/09/18 16:28:36 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 int main( void )
 {
+
+	std::cout << "=== Invalid grades ====" << std::endl << std::endl;
+	
 	try
 	{
 		std::cout << "Form1 0 10" << std::endl;
@@ -22,7 +25,7 @@ int main( void )
 	}
 	catch (std::exception & e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cout << "\e[31m" << e.what() << "\e[0m";
 	}
 
 	std::cout << std::endl;
@@ -34,7 +37,7 @@ int main( void )
 	}
 	catch (std::exception & e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cout << "\e[31m" << e.what() << "\e[0m";
 	}
 
 	std::cout << std::endl;
@@ -46,11 +49,9 @@ int main( void )
 	}
 	catch (std::exception & e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cout << "\e[31m" << e.what() << "\e[0m";
 	}
 
-	std::cout << std::endl;
-	
 	try
 	{
 		std::cout << "Form1 " << LOWEST_GRADE + 1 << " 10" << std::endl;
@@ -58,11 +59,18 @@ int main( void )
 	}
 	catch (std::exception & e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cout << "\e[31m" << e.what() << "\e[0m";
 	}
 
 	std::cout << std::endl;
 
+
+	std::cout << "--- End: Invalid grades ---=" << std::endl << std::endl;
+
+	
+
+	std::cout << "=== Valid grades ====" << std::endl << std::endl;
+	
 	try
 	{
 		Form form ("Form1", 10, 20);
@@ -78,7 +86,7 @@ int main( void )
 	}
 	catch (std::exception & e)
 	{
-		std::cout << e.what();
+		std::cout << "\e[31m" << e.what() << "\e[0m";
 	}
 
 	std::cout << std::endl;
@@ -94,7 +102,7 @@ int main( void )
 	}
 	catch (std::exception & e)
 	{
-		std::cout << e.what();
+		std::cout << "\e[31m" << e.what() << "\e[0m";
 	}
 
 	std::cout << std::endl;
@@ -110,8 +118,11 @@ int main( void )
 	}
 	catch (std::exception & e)
 	{
-		std::cout << e.what();
+		std::cout << "\e[31m" << e.what() << "\e[0m";
 	}
 	
+
+	std::cout << std::endl << "--- End: Valid grades ---" << std::endl;
+
 	return (0);
 }
