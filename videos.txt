@@ -1,0 +1,133 @@
+==== CPP00 ====
+
+Namespaces
+	https://cdn.intra.42.fr/video/video/92/piscine_c___-_d00_-_00_intro.mp4
+stdio streams
+	https://cdn.intra.42.fr/video/video/99/piscine_c___-_d00_-_01_stdio_streams.mp4
+class and instance
+	https://cdn.intra.42.fr/video/video/100/piscine_c___-_d00_-_02_class_and_instance.mp4
+member attributes and methods
+	https://cdn.intra.42.fr/video/video/102/piscine_c___-_d00_-_03_member_attributs_and_member_function.mp4
+this
+	https://cdn.intra.42.fr/video/video/103/piscine_c___-_d00_-_04_this.mp4
+initialisation lists
+	https://cdn.intra.42.fr/video/video/104/piscine_c___-_d00_-_05_init_list.mp4
+const
+	https://cdn.intra.42.fr/video/video/105/piscine_c___-_d00_-_06_const.mp4
+visibility
+	https://cdn.intra.42.fr/video/video/107/piscine_c___-_d00_-_07_encapsulation.mp4
+class vs struct
+	https://cdn.intra.42.fr/video/video/106/piscine_c___-_d00_-_08_class_vs_struct.mp4
+accessors
+	https://cdn.intra.42.fr/video/video/108/piscine_c___-_d00_-_09_accessors.mp4
+comparisons
+	https://cdn.intra.42.fr/video/video/109/piscine_c___-_d00_-_10_comparaisons.mp4
+non member attributes and non mumber functions
+	https://cdn.intra.42.fr/video/video/112/piscine_c___-_d00_-_11_non_membres_attributs_and_non_membres_fonctions.mp4
+pointers to mumbers
+	https://cdn.intra.42.fr/video/video/113/piscine_c___-_d00_-_12_pointers_to_members.mp4
+conclusion
+	https://cdn.intra.42.fr/video/video/110/piscine_c___-_d00_-_conclusion.mp4
+
+
+
+==== CPP01 ====
+
+new and delete
+	https://cdn.intra.42.fr/video/video/115/piscine_c___-_d01_-_00_new_and_delete.mp4
+references
+	https://cdn.intra.42.fr/video/video/116/piscine_c___-_d01_-_01_reference.mp4
+filestreams
+	https://cdn.intra.42.fr/video/video/114/piscine_c___-_d01_-_02_filestream.mp4
+
+
+
+==== CPP02 ====
+
+introduction
+	https://cdn.intra.42.fr/video/video/93/piscine_c___-_d02_-_00__intro.mp4
+ad-hoc polymorphisme
+	https://cdn.intra.42.fr/video/video/94/piscine_c___-_d02_-_00_ad-hoc_polymorphism.mp4
+operator overload
+	https://cdn.intra.42.fr/video/video/95/piscine_c___-_d02_-_01_operator_overload.mp4
+canonical form
+	https://cdn.intra.42.fr/video/video/96/piscine_c___-_d02_-_02_caconical_form.mp4
+conclusion
+	https://cdn.intra.42.fr/video/video/97/piscine_c___-_d02_-conclusion.mp4
+
+
+
+==== CPP03: INHEREITANCE ====
+
+inheritance
+	https://cdn.intra.42.fr/video/video/117/piscine_c___-_d03_-_00_heritage.mp4
+
+
+
+==== CPP04: SUBTYPING POLYMORPHISM ====
+
+sub-typing polymorphism
+	https://cdn.intra.42.fr/video/video/119/piscine_c___-_d04_-_00_polymorphismes_et_sous-typages.mp4
+abstract classes and interfaces
+	https://cdn.intra.42.fr/video/video/118/piscine_c___-_d04_-_01_classes_abstraites_et_les_interfaces.mp4
+
+
+
+==== CPP05: NESTED CLASSES AND EXCEPTIONS ====
+
+nested classes
+	https://cdn.intra.42.fr/video/video/120/piscine_c___-_d05_-_00_classes_imbriquer.mp4
+exceptions
+	https://cdn.intra.42.fr/video/video/121/piscine_c___-_d05_-_01_les_exceptions.mp4
+
+
+
+==== CPP06: CASTS ====
+
+From C - Type conversion:
+	https://cdn.intra.42.fr/video/video/123/piscine_c___-_d06_-_00_from_C_-_type_conversion.mp4
+From C - Type reinterpretation :
+	https://cdn.intra.42.fr/video/video/125/piscine_c___-_d06_-_01_from_C_-_type_reinterpretation.mp4
+From C - Type qualifier reinterpretation 
+	https://cdn.intra.42.fr/video/video/124/piscine_c___-_d06_-_02_from_C_-_type_qualifier.mp4
+Upcast and downcast 
+	https://cdn.intra.42.fr/video/video/126/piscine_c___-_d06_-_03_upcast_and_downcast.mp4
+Static cast
+	https://cdn.intra.42.fr/video/video/127/piscine_c___-_d06_-_04_static_cast_late_1__Output_1_.mp4
+Dynamic cast
+	https://cdn.intra.42.fr/video/video/133/piscine_c___-_d06_-_05_dynamic_cast.mp4
+Reinterpret cast
+	https://cdn.intra.42.fr/video/video/128/piscine_c___-_d06_-_06_reinterpret_cast.mp4
+Const cast
+	https://cdn.intra.42.fr/video/video/129/piscine_c___-_d06_-_07_const_cast_late_1__Output_1_.mp4
+Cast operators
+	https://cdn.intra.42.fr/video/video/130/piscine_c___-_d06_-_08_type-cast_operator.mp4
+Explicit keyword
+	https://cdn.intra.42.fr/video/video/131/piscine_c___-_d06_-_09_explicit_keyword.mp4
+Conclusion
+	https://cdn.intra.42.fr/video/video/132/piscine_c___-_d06_-_10_conclusion_2__Output_1_.mp4
+
+
+
+==== CPP07: TEMPLATES ====
+
+introduction
+	https://cdn.intra.42.fr/video/video/134/piscine_c___-_d07_-_00__intro_1.mp4
+templates
+	https://cdn.intra.42.fr/video/video/138/piscine_c___-_d07_-_01_templates.mp4
+default type
+	https://cdn.intra.42.fr/video/video/136/piscine_c___-_d07_-_02_default_type.mp4
+specialiZation
+	https://cdn.intra.42.fr/video/video/137/piscine_c___-_d07_-_03_specialization.mp4
+conclusion
+	https://cdn.intra.42.fr/video/video/135/piscine_c___-_d07_-_conclusion.mp4
+from c - parametric macros
+	https://cdn.intra.42.fr/video/video/197/piscine_c___-_d07_-_00_from_C_-_parametric_macros.mp4
+
+==== CPP08:STL ====
+
+STL
+	https://cdn.intra.42.fr/video/video/193/piscine_c___-_d08_-_00_conteneur_et_algorythme.mp4
+
+==== CPP09 ====
+none
