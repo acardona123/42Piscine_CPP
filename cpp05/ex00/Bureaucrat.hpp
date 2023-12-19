@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 18:57:32 by acardona          #+#    #+#             */
-/*   Updated: 2023/09/15 19:08:39 by acardona         ###   ########.fr       */
+/*   Updated: 2023/12/18 18:37:38 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ class Bureaucrat
 
 		std::string getName( void ) const;
 		int			getGrade( void ) const;
-		void		downGrade( void );
-		void		upGrade( void );
+		void		downgrade( void );
+		void		upgrade( void );
 
 		class GradeTooHighException : public std::exception
 		{

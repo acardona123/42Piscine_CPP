@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 14:34:06 by acardona          #+#    #+#             */
-/*   Updated: 2023/12/18 21:19:24 by acardona         ###   ########.fr       */
+/*   Updated: 2023/12/18 21:19:48 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 
 // ==== Canonical elements ====
 
-PresidentialPardonForm::PresidentialPardonForm( std::string target ) : AForm( "presidential pardon", PRESIDENCIALPARDONFORM_SIGN, PRESIDENCIALPARDONFORM_EXEC ), _target(target)
+PresidentialPardonForm::PresidentialPardonForm( std::string target ) : Form( "presidential pardon", PRESIDENCIALPARDONFORM_SIGN, PRESIDENCIALPARDONFORM_EXEC ), _target(target)
 {
 }
 
-PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const & model ) : AForm(model), _target(model.getTarget()) 
+PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const & model ) : Form(model), _target(model.getTarget()) 
 {
 }
 
@@ -31,7 +31,7 @@ PresidentialPardonForm & PresidentialPardonForm::operator=( PresidentialPardonFo
 {
 	if (this == &model)
 		return (*this);
-	AForm::operator=(model);
+	Form::operator=(model);
 	this->_target = model.getTarget();
 	return (*this);
 }
@@ -50,9 +50,9 @@ std::string PresidentialPardonForm::getTarget( void ) const
 void	PresidentialPardonForm::execute( Bureaucrat const & executor ) const
 {
 	if (!this->getSigned())
-		throw(AForm::FormNotSignedException());
+		throw(Form::FormNotSignedException());
 	if (!this->checkExecGrade(executor))
-		throw(AForm::GradeTooLowException());
+		throw(Form::GradeTooLowException());
 	try
 	{
 		std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
@@ -67,8 +67,11 @@ void	PresidentialPardonForm::execute( Bureaucrat const & executor ) const
 // ---- Members functions ----
 
 
+
+
+
 std::ostream & operator<<(std::ostream & o, PresidentialPardonForm const & elem)
 {
-	std::cout << static_cast<const AForm&>(elem) << " Target: " << elem.getTarget() << "." << std::endl;
+	std::cout << static_cast<const Form&>(elem) << " Target: " << elem.getTarget() << "." << std::endl;
 	return (o);
 }

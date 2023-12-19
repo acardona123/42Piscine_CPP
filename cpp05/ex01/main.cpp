@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 19:05:20 by acardona          #+#    #+#             */
-/*   Updated: 2023/09/18 16:28:36 by acardona         ###   ########.fr       */
+/*   Updated: 2023/12/18 19:03:44 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,13 +73,16 @@ int main( void )
 	
 	try
 	{
-		Form form ("Form1", 10, 20);
-		std::cout << form << std::endl;
+		std::cout << "- \e[0;4mBureaucrat::sign\e[0m" << std::endl << std::endl;
+		Form form ("Form1", 10, 5);
+		std::cout << form << std::endl << std::endl;
+		
 		Bureaucrat toto ("Toto", 11);
 		std::cout << toto << std::endl;
 		toto.signForm(form);
-		std::cout << form << std::endl;
-		toto.upGrade();
+		std::cout << form << std::endl << std::endl;
+
+		toto.upgrade();
 		std::cout << toto << std::endl;
 		toto.signForm(form);
 		std::cout << form << std::endl;
@@ -93,7 +96,8 @@ int main( void )
 
 	try
 	{
-		Form form ("Form2", 10, 20);
+		std::cout << "- \e[0;4mForm::beSigned\e[0m" << std::endl;
+		Form form ("Form2", 10, 5);
 		std::cout << form << std::endl;
 		Bureaucrat toto ("Toto", 11);
 		std::cout << toto << std::endl;
@@ -109,7 +113,7 @@ int main( void )
 
 	try
 	{
-		Form form ("Form2", 10, 20);
+		Form form ("Form2", 10, 5);
 		std::cout << form << std::endl;
 		Bureaucrat toto ("Toto", 9);
 		std::cout << toto << std::endl;

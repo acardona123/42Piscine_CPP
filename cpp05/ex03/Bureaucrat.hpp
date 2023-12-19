@@ -24,7 +24,7 @@
 #define HIGHEST_GRADE 1
 #endif
 
-#include "AForm.hpp"
+#include "Form.hpp"
 
 class Bureaucrat
 {
@@ -38,8 +38,8 @@ class Bureaucrat
 		int			getGrade( void ) const;
 		void		downgrade( void );
 		void		upgrade( void );
-		void		signForm( AForm * form );
-		void		executeForm( AForm * form );
+		void		signForm( Form * form );
+		void		executeForm( Form * form );
 
 		class GradeTooHighException : public std::exception
 		{

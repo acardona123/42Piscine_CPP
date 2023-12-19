@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 14:34:06 by acardona          #+#    #+#             */
-/*   Updated: 2023/12/18 21:19:11 by acardona         ###   ########.fr       */
+/*   Updated: 2023/12/18 21:20:09 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 // ==== Canonical elements ====
 
-RobotomyRequestForm::RobotomyRequestForm( std::string target ) : AForm( "robotomy request", ROBOTOMYREQUESTCREATIONFORM_SIGN, ROBOTOMYREQUESTCREATIONFORM_EXEC ), _target(target)
+RobotomyRequestForm::RobotomyRequestForm( std::string target ) : Form( "robotomy request", ROBOTOMYREQUESTCREATIONFORM_SIGN, ROBOTOMYREQUESTCREATIONFORM_EXEC ), _target(target)
 {
 	srand (time(NULL));
 }
 
-RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const & model ) : AForm(model), _target(model.getTarget()) 
+RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const & model ) : Form(model), _target(model.getTarget()) 
 {
 	srand (time(NULL));
 }
@@ -33,7 +33,7 @@ RobotomyRequestForm & RobotomyRequestForm::operator=( RobotomyRequestForm const 
 {
 	if (this == &model)
 		return (*this);
-	AForm::operator=(model);
+	Form::operator=(model);
 	this->_target = model.getTarget();
 	return (*this);
 }
@@ -52,9 +52,9 @@ std::string RobotomyRequestForm::getTarget( void ) const
 void	RobotomyRequestForm::execute( Bureaucrat const & executor ) const
 {
 	if (!this->getSigned())
-		throw(AForm::FormNotSignedException());
+		throw(Form::FormNotSignedException());
 	if (!this->checkExecGrade(executor))
-		throw(AForm::GradeTooLowException());
+		throw(Form::GradeTooLowException());
 	try
 	{
 		std::cout << "[drilling noise] RRRRRRRRrrrrRRRRRrrrrRRRrrrrRRrrrrRrr" << std::endl;
@@ -75,6 +75,6 @@ void	RobotomyRequestForm::execute( Bureaucrat const & executor ) const
 
 std::ostream & operator<<(std::ostream & o, RobotomyRequestForm const & elem)
 {
-	std::cout << static_cast<const AForm&>(elem) << " Target: " << elem.getTarget() << "." << std::endl;
+	std::cout << static_cast<const Form&>(elem) << " Target: " << elem.getTarget() << "." << std::endl;
 	return (o);
 }

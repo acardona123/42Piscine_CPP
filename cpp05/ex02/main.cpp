@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 19:05:20 by acardona          #+#    #+#             */
-/*   Updated: 2023/12/17 19:35:21 by acardona         ###   ########.fr       */
+/*   Updated: 2023/12/18 21:17:15 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ static void _testSchrubberyCreationForm(void)
 	{
 		std::cout << "== SchrubberyCreationForm ==" << std::endl << std::endl;
 		ShrubberyCreationForm form ("Home");
+		std::cout << form << std::endl;
 		std::cout << "- Bureaucrat BigBoss : 1" << std::endl;
 		Bureaucrat boss("BigBoss", 1);
 		try

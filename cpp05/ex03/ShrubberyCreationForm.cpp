@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 14:34:06 by acardona          #+#    #+#             */
-/*   Updated: 2023/12/18 21:18:17 by acardona         ###   ########.fr       */
+/*   Updated: 2023/12/18 21:20:22 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 
 // ==== Canonical elements ====
 
-ShrubberyCreationForm::ShrubberyCreationForm( std::string target ) : AForm( "shrubbery creation", SHRUBBERYCREATIONFORM_SIGN, SHRUBBERYCREATIONFORM_EXEC ), _target(target)
+ShrubberyCreationForm::ShrubberyCreationForm( std::string target ) : Form( "shrubbery creation", SHRUBBERYCREATIONFORM_SIGN, SHRUBBERYCREATIONFORM_EXEC ), _target(target)
 {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( ShrubberyCreationForm const & model ) : AForm(model), _target(model.getTarget()) 
+ShrubberyCreationForm::ShrubberyCreationForm( ShrubberyCreationForm const & model ) : Form(model), _target(model.getTarget()) 
 {
 }
 
@@ -31,7 +31,7 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator=( ShrubberyCreationForm 
 {
 	if (this == &model)
 		return (*this);
-	AForm::operator=(model);
+	Form::operator=(model);
 	this->_target = model.getTarget();
 	return (*this);
 }
@@ -50,9 +50,9 @@ std::string ShrubberyCreationForm::getTarget( void ) const
 void	ShrubberyCreationForm::execute( Bureaucrat const & executor ) const
 {
 	if (!this->getSigned())
-		throw(AForm::FormNotSignedException());
+		throw(Form::FormNotSignedException());
 	if (!this->checkExecGrade(executor))
-		throw(AForm::GradeTooLowException());
+		throw(Form::GradeTooLowException());
 	try
 	{
 		std::ofstream outFile((this->_target).c_str());
@@ -81,6 +81,6 @@ void	ShrubberyCreationForm::execute( Bureaucrat const & executor ) const
 
 std::ostream & operator<<(std::ostream & o, ShrubberyCreationForm const & elem)
 {
-	std::cout << static_cast<const AForm&>(elem) << " Target: " << elem.getTarget() << "." << std::endl;
+	std::cout << static_cast<const Form&>(elem) << " Target: " << elem.getTarget() << "." << std::endl;
 	return (o);
 }

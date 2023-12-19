@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 19:04:08 by acardona          #+#    #+#             */
-/*   Updated: 2023/12/17 19:39:52 by acardona         ###   ########.fr       */
+/*   Updated: 2023/12/18 18:37:38 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,14 +65,14 @@ int Bureaucrat::getGrade( void ) const
 
 // ==== mumber functions ====
 
-void	Bureaucrat::downGrade( void )
+void	Bureaucrat::downgrade( void )
 {
 	if (this->_grade == LOWEST_GRADE)
 		throw(Bureaucrat::GradeTooLowException());
 	this->_grade++;
 }
 
-void Bureaucrat::upGrade( void )
+void Bureaucrat::upgrade( void )
 {
 	if (this->_grade == HIGHEST_GRADE)
 		throw(GradeTooHighException());

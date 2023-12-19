@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 19:05:20 by acardona          #+#    #+#             */
-/*   Updated: 2023/09/14 21:12:21 by acardona         ###   ########.fr       */
+/*   Updated: 2023/12/18 18:42:24 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main( void )
 	}
 	catch (std::exception & e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cout << "\e[31m" <<  e.what() << "\e[0m" << std::endl;
 	}
 
 	std::cout << std::endl;
@@ -31,7 +31,7 @@ int main( void )
 	}
 	catch (std::exception & e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cout << "\e[31m" <<  e.what() << "\e[0m" << std::endl;
 	}
 
 	std::cout << std::endl;
@@ -40,14 +40,14 @@ int main( void )
 	{
 		Bureaucrat toto ("Toto", 2);
 		std::cout << toto << std::endl;
-		toto.upGrade();
+		toto.upgrade();
 		std::cout << toto << std::endl;
-		toto.upGrade();
+		toto.upgrade();
 		std::cout << toto << std::endl;
 	}
 	catch (std::exception & e)
 	{
-		std::cout << e.what();
+		std::cout << "\e[31m" <<  e.what() << "\e[0m" << std::endl;
 	}
 
 	std::cout << std::endl;
@@ -56,14 +56,14 @@ int main( void )
 	{
 		Bureaucrat toto ("Toto", LOWEST_GRADE - 1);
 		std::cout << toto << std::endl;
-		toto.downGrade();
+		toto.downgrade();
 		std::cout << toto << std::endl;
-		toto.downGrade();
+		toto.downgrade();
 		std::cout << toto << std::endl;
 	}
 	catch (std::exception & e)
 	{
-		std::cout << e.what();
+		std::cout << "\e[31m" <<  e.what() << "\e[0m" << std::endl;
 	}
 	
 	return (0);
