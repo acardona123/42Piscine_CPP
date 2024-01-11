@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 19:05:20 by acardona          #+#    #+#             */
-/*   Updated: 2023/12/18 19:03:44 by acardona         ###   ########.fr       */
+/*   Updated: 2024/01/11 18:00:16 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ int main( void )
 
 		toto.upgrade();
 		std::cout << toto << std::endl;
+		toto.signForm(form);
 		toto.signForm(form);
 		std::cout << form << std::endl;
 	}

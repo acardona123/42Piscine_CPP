@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 15:18:12 by acardona          #+#    #+#             */
-/*   Updated: 2024/01/02 23:31:08 by acardona         ###   ########.fr       */
+/*   Updated: 2024/01/11 14:29:44 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,8 @@ static bool	_is_infinity(std::string str)
 
 static int _fractional_precision(t_input_type type, std::string str)
 {
-	if (_is_infinity(str) || str == "nan" || str == "nanf")
+	if (_is_infinity(str) || str == "nan" || str == "nanf"
+		|| str.find(".") == std::string::npos)
 		return (1);
 	if (type == IS_FLOAT)
 		return (str.substr(str.find(".") + 1, str.length() - str.find(".") - 1).length() - 1);
@@ -132,10 +133,9 @@ static int _check_format_and_exctract_int(std::string input) throw(std::invalid_
 		throw (std::invalid_argument("wrong format"));
 
 	int			n (std::atoi(input.c_str()));
-	std::string	str_conv  (static_cast<std::ostringstream&>((std::ostringstream() << std::dec << n)).str());
-
+	std::string	str_conv = static_cast<const std::ostringstream&>((std::ostringstream() << std::dec << n)).str();
 	if (str_conv != input)
-		throw (std::invalid_argument("wrong format"));
+		throw (std::invalid_argument("wrong format or overflow"));
 	return (n);
 }
 
@@ -174,15 +174,10 @@ static void	_convert_float(std::string str) throw(std::invalid_argument)
 	float	f (_check_format_and_exctract_float(str));
 	int		precision;
 
-	std::cout << "FLOAT: " << f << std::endl;
-	std::cout << "INT_MIN: " << INT_MIN << std::endl;
 	if (f < CHAR_MIN || f > CHAR_MAX || str == "nanf")
 		_display_impossible("char");
 	else
 		_display(static_cast<char>(f));
-	std::cout << std::endl <<  "FLOAT: " << f << std::endl;//==============
-	std::cout << "INT_MIN: " << INT_MIN << std::endl;//====================
-	std::cout << "INF: " << (f < INT_MIN) << std::endl;//====================
 	if (f < INT_MIN || f > INT_MAX || str == "nanf")
 		_display_impossible("int");
 	else
