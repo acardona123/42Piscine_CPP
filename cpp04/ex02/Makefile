@@ -1,4 +1,4 @@
-NAME		=	ex02
+NAME		=	ex02.exe
 
 CC			=	c++
 CFLAGS		=	-std=c++98 -Werror -Wall -Wextra
