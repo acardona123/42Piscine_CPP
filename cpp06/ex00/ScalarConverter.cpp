@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 15:18:12 by acardona          #+#    #+#             */
-/*   Updated: 2024/01/11 14:29:44 by acardona         ###   ########.fr       */
+/*   Updated: 2024/01/12 16:34:09 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ static bool	_is_infinity(std::string str)
 static int _fractional_precision(t_input_type type, std::string str)
 {
 	if (_is_infinity(str) || str == "nan" || str == "nanf"
+		|| str == "-nan" || str == "-nanf"
 		|| str.find(".") == std::string::npos)
 		return (1);
 	if (type == IS_FLOAT)
@@ -95,10 +96,10 @@ static t_input_type _get_input_likely_type(std::string input) throw(std::invalid
 		throw (std::invalid_argument("empty string"));
 	if (input.at(0) == '\'')
 		return (IS_CHAR);
-	if (input == "-inff" || input == "+inff" || input == "inff" || input == "nanf"
+	if (input == "-inff" || input == "+inff" || input == "inff" || input == "nanf" || input == "-nanf"
 		|| (!_is_infinity(input) && input.find('f') != std::string::npos))
 		return (IS_FLOAT);
-	if (input == "-inf" || input == "+inf" || input == "inf" || input == "nan" || input.find(".") != std::string::npos)
+	if (input == "-inf" || input == "+inf" || input == "inf" || input == "nan" || input == "-nan" || input.find(".") != std::string::npos)
 		return (IS_DOUBLE);
 	return (IS_INT);
 }
@@ -174,11 +175,11 @@ static void	_convert_float(std::string str) throw(std::invalid_argument)
 	float	f (_check_format_and_exctract_float(str));
 	int		precision;
 
-	if (f < CHAR_MIN || f > CHAR_MAX || str == "nanf")
+	if (f < CHAR_MIN || f > CHAR_MAX || str == "nanf" || str == "-nanf")
 		_display_impossible("char");
 	else
 		_display(static_cast<char>(f));
-	if (f < INT_MIN || f > INT_MAX || str == "nanf")
+	if (f < INT_MIN || f > INT_MAX || str == "nanf" || str == "-nanf")
 		_display_impossible("int");
 	else
 		_display(static_cast<int>(f));
@@ -206,11 +207,11 @@ static void	_convert_double(std::string str) throw(std::invalid_argument)
 	int		precision;
 
 
-	if (d < CHAR_MIN || d > CHAR_MAX || str == "nan")
+	if (d < CHAR_MIN || d > CHAR_MAX || str == "nan" || str == "-nan")
 		_display_impossible("char");
 	else
 		_display(static_cast<char>(d));
-	if (d < INT_MIN || d > INT_MAX || str == "nan")
+	if (d < INT_MIN || d > INT_MAX || str == "nan" || str == "-nan")
 		_display_impossible("int");
 	else
 		_display(static_cast<int>(d));

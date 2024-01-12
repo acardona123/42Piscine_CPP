@@ -5,7 +5,7 @@ CFLAGS		=	-std=c++98 -Werror -Wall -Wextra -g
 DEPSFLAG	=	-MMD
 
 FILES		=	main \
-				ScalarConverter
+				Serializer
 
 SRC			=	$(addsuffix .cpp, $(FILES))
 
