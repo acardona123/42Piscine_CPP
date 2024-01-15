@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 15:11:54 by acardona          #+#    #+#             */
-/*   Updated: 2024/01/11 18:07:31 by acardona         ###   ########.fr       */
+/*   Updated: 2024/01/15 14:47:56 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main ( void )
 
 	Base basic;
 	Base &basic_ref = basic;
-	std::cout << "The reals class is Base:" << std::endl;
+	std::cout << "The real class is Base:" << std::endl;
 	identify(&basic);
 	identify(basic_ref);
 
