@@ -1,9 +1,25 @@
 #include <iostream>
-#include <Array.hpp>
+#include <ctime>//
+#include <cstdlib>//
+#include "Array.hpp"//
 
 #define MAX_VAL 750
 int main(int, char**)
 {
+
+    {//my own test for the default consrtructor of Array 
+        Array<int> array_int;
+
+        try
+        {
+            array_int[5];
+        }
+        catch (std::exception &e)
+        {
+            std::cout << e.what() << std::endl;
+        }
+    }
+
     Array<int> numbers(MAX_VAL);
     int* mirror = new int[MAX_VAL];
     srand(time(NULL));
@@ -13,6 +29,7 @@ int main(int, char**)
         numbers[i] = value;
         mirror[i] = value;
     }
+
     //SCOPE
     {
         Array<int> tmp = numbers;
@@ -27,6 +44,8 @@ int main(int, char**)
             return 1;
         }
     }
+    std::cout << " -> copy constructor: ok" << std::endl;//
+
     try
     {
         numbers[-2] = 0;
@@ -34,6 +53,7 @@ int main(int, char**)
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
+        std::cout << " -> error detected" << std::endl;//
     }
     try
     {
@@ -42,6 +62,7 @@ int main(int, char**)
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
+        std::cout << " -> error detected" << std::endl;//
     }
 
     for (int i = 0; i < MAX_VAL; i++)
