@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:01:15 by acardona          #+#    #+#             */
-/*   Updated: 2024/01/15 20:36:20 by acardona         ###   ########.fr       */
+/*   Updated: 2024/01/20 15:56:10 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ template <typename T> class Array
 		}
 		T & operator[](unsigned int index) throw (std::out_of_range){
 			if (index >= _size)
-				throw (std::out_of_range("index out of bounds"));
+				throw (std::out_of_range("indexc out of bounds"));
 			return (_content[index]);
 		}
 	private:
