@@ -3,7 +3,7 @@
 #include <cstdlib>//
 #include "Array.hpp"//
 
-#define MAX_VAL 750
+#define MAX_VAL 5
 int main(int, char**)
 {
 
@@ -26,14 +26,24 @@ int main(int, char**)
     for (int i = 0; i < MAX_VAL; i++)
     {
         const int value = rand();
+        std::cout << "(" << value << "; ";
         numbers[i] = value;
+        std::cout << numbers[i] << ")" << std::endl;
         mirror[i] = value;
     }
 
     //SCOPE
     {
+        std::cout << "NUMBERS ARE: " << numbers << std::endl;
         Array<int> tmp = numbers;
+        std::cout << "TMP: " << tmp << std::endl;
         Array<int> test(tmp);
+        std::cout << "TEST: " << test << std::endl;
+        test[0] = 0;
+        std::cout << "TEST updated: " << test << std::endl;
+        std::cout << "NUMBER after test update: " << numbers << std::endl;
+
+
     }
 
     for (int i = 0; i < MAX_VAL; i++)
