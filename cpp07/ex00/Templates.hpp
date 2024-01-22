@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 19:55:06 by acardona          #+#    #+#             */
-/*   Updated: 2024/01/12 20:20:48 by acardona         ###   ########.fr       */
+/*   Updated: 2024/01/22 16:11:58 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,58 +24,22 @@ template<typename T> void swap(T &a, T &b)
 
 template<typename T> T & min(T & a, T & b)
 {
-	if (a < b)
-		return (a);
-	return (b);
-}
-
-template<typename T> T const & min(T const & a, T & b)
-{
-	if (a < b)
-		return (a);
-	return (b);
-}
-
-template<typename T> T const & min(T & a, T const & b)
-{
-	if (a < b)
-		return (a);
-	return (b);
+	return (a < b ? a : b);
 }
 
 template<typename T> T const & min(T const & a, T const & b)
 {
-	if (a < b)
-		return (a);
-	return (b);
+	return (a < b ? a : b);
 }
 
 template<typename T> T & max(T & a, T & b)
 {
-	if (a > b)
-		return (a);
-	return (b);
-}
-
-template<typename T> T const & max(T const & a, T & b)
-{
-	if (a > b)
-		return (a);
-	return (b);
-}
-
-template<typename T> T const & max(T & a, T const & b)
-{
-	if (a > b)
-		return (a);
-	return (b);
+	return (a > b ? a : b);
 }
 
 template<typename T> T const & max(T const & a, T const & b)
 {
-	if (a > b)
-		return (a);
-	return (b);
+	return (a > b ? a : b);
 }
 
 #endif
