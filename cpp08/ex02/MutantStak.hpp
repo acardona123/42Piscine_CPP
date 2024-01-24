@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:14:06 by acardona          #+#    #+#             */
-/*   Updated: 2024/01/22 23:48:07 by acardona         ###   ########.fr       */
+/*   Updated: 2024/01/24 18:35:58 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define MUTANTSTACK_HPP
 
 # include <stack>
+# include <vector>
 # include <algorithm>
 
 
@@ -69,16 +70,16 @@
 // };
 
 template <class T>
-	class MutantStack : public std::stack<T>
+	class MutantStack : public std::stack< T >
 {
 	public:
 		MutantStack< T >( void ) {};
 		MutantStack< T >( MutantStack & model) {
-			std::stack<T>::operator=(model);
+			std::stack< T >::operator=(model);
 		}
 		~MutantStack< T >( void ) {}
 		MutantStack< T > & operator=(MutantStack model) {
-			std::stack<T>::operator=(model);
+			std::stack< T >::operator=(model);
 			return (*this);
 		}
 		
@@ -94,7 +95,11 @@ template <class T>
 				T *_ptr;
 
 			public:
-				iterator( T *ptr) : _ptr(ptr) {}
+				iterator ( void ) : _ptr(nullptr) {}
+				iterator( T *ptr ) : _ptr(ptr) {}
+				iterator (iterator const & model) : _ptr(model._ptr){}
+				iterator & operator=(iterator const &model) { _ptr = model._ptr; }
+				~iterator() {}
 				T &operator*() const { return (*_ptr);}
 				T &operator->() const { return (_ptr);}
 				iterator & operator++(){
@@ -117,8 +122,8 @@ template <class T>
 				bool operator==(iterator const & rhs) { return ( _ptr == rhs._ptr);}
 				bool operator!=(iterator const & rhs) {return ( _ptr != rhs._ptr);}
 		};
-		iterator begin( void ) {return (this->empty() ? nullptr : iterator(&this->top() - this->size() + 1));}
-		iterator end( void ) {return (this->empty() ? nullptr : iterator(&this->top() + 1));}
+		iterator begin( void ) {return (this->empty() ? iterator( ) : iterator(&this->top() - this->size() + 1));}
+		iterator end( void ) {return (this->empty() ? iterator ( ) : iterator(&this->top() + 1));}
 };
 
 #endif

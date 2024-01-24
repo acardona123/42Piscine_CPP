@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 20:12:50 by acardona          #+#    #+#             */
-/*   Updated: 2024/01/22 23:43:59 by acardona         ###   ########.fr       */
+/*   Updated: 2024/01/24 18:19:45 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int main()
 		mstack.push(737);
 		//[...]
 		mstack.push(0);
-		MutantStack<int>::iterator it = mstack.begin();
+		MutantStack<int>::iterator it (mstack.begin());
 		MutantStack<int>::iterator ite = mstack.end();
 		++it;
 		--it;

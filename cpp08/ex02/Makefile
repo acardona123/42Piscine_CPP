@@ -1,6 +1,7 @@
 NAME		=	ex02.exe
 
-CC			=	c++
+CC			=	cerror: no matching constructor for initialization of 'MutantStack<int>::iterator'
+                MutantStack<int>::iterator it (mstack.begin());++
 CFLAGS		=	-Werror -Wall -Wextra -g
 DEPSFLAG	=	-MMD
 
