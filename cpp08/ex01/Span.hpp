@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 18:36:08 by acardona          #+#    #+#             */
-/*   Updated: 2024/01/22 16:44:47 by acardona         ###   ########.fr       */
+/*   Updated: 2024/01/25 18:24:42 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class Span
 		unsigned int	getSize( void ) const;
 		unsigned int	getSizeMax( void ) const;
 		int operator[]( unsigned int i) throw (std::out_of_range);
+		int operator[]( unsigned int i) const throw (std::out_of_range);
 
 		//setters
 		class exceptionSpanFull : public std::exception

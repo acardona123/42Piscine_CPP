@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 18:37:03 by acardona          #+#    #+#             */
-/*   Updated: 2024/01/21 22:01:31 by acardona         ###   ########.fr       */
+/*   Updated: 2024/01/25 18:24:46 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,13 @@ int Span::operator[](unsigned int idx)  throw (std::out_of_range)
 	return (_values.at(idx));
 }
 
+int Span::operator[](unsigned int idx) const throw (std::out_of_range)
+{
+	if (idx >= _size)
+		throw(std::out_of_range("index ot of the span bounds"));
+	return (_values.at(idx));
+}
+
 
 
 // ==== setters ====
@@ -105,10 +112,11 @@ unsigned int	Span::longestSpan( void ) throw(exceptionSpanTooShort)
 	return (static_cast<unsigned int>(*max_element(diffs.begin(), diffs.end())));	
 }
 
-std::ostream &operator<<(std::ostream &o, Span const &rhs)
+std::ostream &operator<<(std::ostream &o, Span const & rhs)
 {
 	std::cout << "{";
 	for (unsigned int n = 0; n < rhs.getSize() - 1 ; n++)
+
 		std::cout << rhs[n] << ", ";
 	if (rhs.getSize() >= 1)
 		std::cout << rhs[rhs.getSize() - 1];
