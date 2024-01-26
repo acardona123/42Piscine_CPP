@@ -1,4 +1,4 @@
-NAME		=	ex02.exe
+NAME		=	ex02_executable
 
 CC			=	cerror: no matching constructor for initialization of 'MutantStack<int>::iterator'
                 MutantStack<int>::iterator it (mstack.begin());++

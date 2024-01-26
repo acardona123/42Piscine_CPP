@@ -1,4 +1,4 @@
-NAME		=	ex00.exe
+NAME		=	ex00_executable
 
 CC			=	c++
 CFLAGS		=	-std=c++98 -Werror -Wall -Wextra -g
