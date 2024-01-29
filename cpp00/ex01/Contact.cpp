@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 18:12:41 by alexcardona       #+#    #+#             */
-/*   Updated: 2023/08/30 18:01:25 by acardona         ###   ########.fr       */
+/*   Updated: 2024/01/28 19:01:42 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ static int	_set_a_name(std::string *dest, std::string const name_of_name, std::s
 			if (!std::isalpha(input[i])
 				&& special_chars.find(input[i]) == std::string::npos)
 			{
-				std::cout << "\tThe " << name_of_name << " can only contain lettres and the elements of the following string : \"" << special_chars << "\"" << std::endl << "\tPlease retry : ";
+				std::cout << "\tThe " << name_of_name << " can only contain letters and the elements of the following string : \"" << special_chars << "\"" << std::endl << "\tPlease retry : ";
 				error = 1;
 				break ;
 			}
@@ -177,7 +177,7 @@ int	Contact::set_phone_number(void)
 			}
 		}
 		if (error)
-			std::cout << "\tThe phone number must contain exactly 10 diggits." << std::endl << "\tPlease retry : ";
+			std::cout << "\tThe phone number must contain exactly 10 digits." << std::endl << "\tPlease retry : ";
 		else
 			break;
 	}

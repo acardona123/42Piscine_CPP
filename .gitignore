@@ -1,2 +1,3 @@
 **/*/obj
-**/*.exe
+**/*_executable
+**/data.csv
