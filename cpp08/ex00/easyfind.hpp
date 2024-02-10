@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 16:23:10 by acardona          #+#    #+#             */
-/*   Updated: 2024/01/22 16:30:02 by acardona         ###   ########.fr       */
+/*   Updated: 2024/02/10 18:39:50 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ template <typename T> bool easyfind(T & int_container, int to_find)
 {
 	if (std::find(int_container.begin(), int_container.end(), to_find) == int_container.end())
 	{
-		throw (ExceptionNotFound());
+		return (false);
 	}
 	return (true);	
 }

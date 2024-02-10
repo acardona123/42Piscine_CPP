@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 20:12:50 by acardona          #+#    #+#             */
-/*   Updated: 2024/01/24 18:19:45 by acardona         ###   ########.fr       */
+/*   Updated: 2024/02/10 18:29:21 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 int main()
 {
 	{
-		std::cout << "=== MutantStack ===" << std::endl;
+		std::cout << "=== Subject test: Default (deque) ===" << std::endl;
 		MutantStack<int> mstack;
 		mstack.push(5);
 		mstack.push(17);
@@ -40,8 +40,9 @@ int main()
 		}
 		std::stack<int> s(mstack);
 	}
+	std::cout << std::endl;
 	{
-		std::cout << "=== List ===" << std::endl;
+		std::cout << "=== Subject tests: List ===" << std::endl;
 		std::list<int> mstack;
 		mstack.push_back(5);
 		mstack.push_back(17);
@@ -63,6 +64,25 @@ int main()
 			++it;
 		}
 		std::list<int> s(mstack);
+	}
+	std::cout << std::endl;
+	{
+		std::cout << "=== Very long one: Deque ===" << std::endl;
+		int upperBound (3000);
+		MutantStack<int> Huge;
+		for (int i = 0; i < upperBound; ++i)
+		{
+			Huge.push(i);
+		}
+		Huge.push(25);
+		for (MutantStack<int>::iterator it = Huge.begin(); it < Huge.end(); ++it)
+		{
+			if (*it != 0 && *it != *std::prev(it) + 1)
+				std::cout << "\e[1;31m" << *it << "\e[0m; ";
+			else
+				std::cout << *it << "; ";
+		}
+		std::cout << std::endl;
 	}
 	return 0;
 }

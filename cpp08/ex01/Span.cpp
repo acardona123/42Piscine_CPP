@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 18:37:03 by acardona          #+#    #+#             */
-/*   Updated: 2024/01/25 18:24:46 by acardona         ###   ########.fr       */
+/*   Updated: 2024/02/10 18:52:53 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ unsigned int	Span::shortestSpan( void ) throw(exceptionSpanTooShort)
 		throw (exceptionSpanTooShort());
 	std::vector<int> diffs(_values.size());
 	
+	std::sort(diffs.begin(), diffs.end());
 	std::adjacent_difference(_values.begin(), _values.end(), diffs.begin());
 	diffs[0] = diffs[1];
 	std::transform(diffs.begin(), diffs.end(), diffs.begin(), _abs);
@@ -102,14 +103,8 @@ unsigned int	Span::shortestSpan( void ) throw(exceptionSpanTooShort)
 unsigned int	Span::longestSpan( void ) throw(exceptionSpanTooShort)
 {
 	if (_size <= 1)
-		throw (exceptionSpanTooShort());
-	std::vector<int> diffs(_values.size());
-	
-	std::adjacent_difference(_values.begin(), _values.end(), diffs.begin());
-	diffs[0] = diffs[1];
-	std::transform(diffs.begin(), diffs.end(), diffs.begin(), _abs);
-	// return (*min_element(diffs.begin(), diffs.end()));	
-	return (static_cast<unsigned int>(*max_element(diffs.begin(), diffs.end())));	
+		throw (exceptionSpanTooShort());	
+	return (static_cast<unsigned int>(*max_element(_values.begin(), _values.end()) - *min_element(_values.begin(), _values.end())));	
 }
 
 std::ostream &operator<<(std::ostream &o, Span const & rhs)
