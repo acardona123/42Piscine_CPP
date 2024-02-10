@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 16:22:12 by acardona          #+#    #+#             */
-/*   Updated: 2024/02/10 18:38:57 by acardona         ###   ########.fr       */
+/*   Updated: 2024/02/11 00:40:23 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int main( void )
 			std::cout << "i = " << i << ":" << std::endl << "  "; 
 			try
 			{
-				std::cout << *easyfind<std::vector<int>>(vec, i) << " found" <<  std::endl;
+				std::cout << *easyfind<std::vector<int> >(vec, i) << " found" <<  std::endl;
 			}
 			catch (std::exception &e)
 			{
@@ -57,7 +57,7 @@ int main( void )
 			std::cout << "i = " << i << ":" << std::endl << "  "; 
 			try
 			{
-				std::cout << *easyfind<std::list<int>>(lst, i) << " found" <<  std::endl;
+				std::cout << *easyfind<std::list<int> >(lst, i) << " found" <<  std::endl;
 			}
 			catch (std::exception &e)
 			{
@@ -80,7 +80,7 @@ int main( void )
 	// 		std::cout << "i = " << i << ":" << std::endl << "  "; 
 	// 		try
 	// 		{
-	// 			std::cout << easyfind<std::queue<int>>(qu, i) << " found" <<  std::endl;
+	// 			std::cout << easyfind<std::queue<int> >(qu, i) << " found" <<  std::endl;
 	// 		}
 	// 		catch (std::exception &e)
 	// 		{
@@ -107,7 +107,7 @@ int main( void )
 		for (int i = -2; i < 7; ++i)
 		{
 			std::cout << "i = " << i << ":" << std::endl << "  "; 
-			if (easyfind<std::vector<int>>(vec, i))
+			if (easyfind<std::vector<int> >(vec, i))
 				std::cout << " found" <<  std::endl;
 			else
 				std::cout << "not found" << std::endl;
@@ -126,7 +126,7 @@ int main( void )
 		for (int i = -2; i < 7; ++i)
 		{
 			std::cout << "i = " << i << ":" << std::endl << "  "; 
-			if (easyfind<std::list<int>>(lst, i))
+			if (easyfind<std::list<int> >(lst, i))
 				std::cout << " found" <<  std::endl;
 			else
 				std::cout << "not found" << std::endl;
@@ -145,7 +145,7 @@ int main( void )
 	// 	for (int i = -2; i < 7; ++i)
 	// 	{
 	// 		std::cout << "i = " << i << ":" << std::endl << "  "; 
-	// 		if (easyfind<std::queue<int>>(qu, i))
+	// 		if (easyfind<std::queue<int> >(qu, i))
 	// 			std::cout << " found" <<  std::endl;
 	// 		else
 	// 			std::cout << "not found" << std::endl;

@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 20:12:50 by acardona          #+#    #+#             */
-/*   Updated: 2024/02/10 18:29:21 by acardona         ###   ########.fr       */
+/*   Updated: 2024/02/11 00:48:46 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,10 @@ int main()
 		{
 			Huge.push(i);
 		}
-		Huge.push(25);
+		Huge.push(25);//just to highlight the error detection in the main
 		for (MutantStack<int>::iterator it = Huge.begin(); it < Huge.end(); ++it)
 		{
-			if (*it != 0 && *it != *std::prev(it) + 1)
+			if (*it != 0 && *it != *(it - 1) + 1)
 				std::cout << "\e[1;31m" << *it << "\e[0m; ";
 			else
 				std::cout << *it << "; ";

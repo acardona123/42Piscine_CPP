@@ -1,7 +1,7 @@
 NAME		=	ex02_executable
 
 CC			=	c++
-CFLAGS		=	-Werror -Wall -Wextra -g
+CFLAGS		=	-Werror -Wall -Wextra -g  -std=c++98
 DEPSFLAG	=	-MMD
 
 FILES		=	main \
