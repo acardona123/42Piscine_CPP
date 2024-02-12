@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 18:36:08 by acardona          #+#    #+#             */
-/*   Updated: 2024/02/12 17:11:01 by acardona         ###   ########.fr       */
+/*   Updated: 2024/02/12 21:22:24 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ class Span
 		class exceptionRageTooWide : public std::exception
 		{
 			public:
-				virtual const char *what( void ) const throw() { return ("Span: exception: the given iterators describe a range bigger than the Span remaining capacity"); }
+				virtual const char *what( void ) const throw() { return ("Span: exception: the given iterators describe a range bigger than the Span's remaining capacity"); }
 		};
 		void addNumber(int n) throw(exceptionSpanFull);
 		template<typename T>
