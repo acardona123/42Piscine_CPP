@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 16:22:12 by acardona          #+#    #+#             */
-/*   Updated: 2024/02/11 00:40:23 by acardona         ###   ########.fr       */
+/*   Updated: 2024/02/11 20:07:45 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int main( void )
 			std::cout << "i = " << i << ":" << std::endl << "  "; 
 			try
 			{
-				std::cout << *easyfind<std::vector<int> >(vec, i) << " found" <<  std::endl;
+				std::cout << *easyfind< std::vector<int> >(vec, i) << " found" <<  std::endl;
 			}
 			catch (std::exception &e)
 			{

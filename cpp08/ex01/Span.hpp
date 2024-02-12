@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 18:36:08 by acardona          #+#    #+#             */
-/*   Updated: 2024/01/25 18:24:42 by acardona         ###   ########.fr       */
+/*   Updated: 2024/02/12 17:11:01 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ class Span
 			public:
 				virtual const char *what( void ) const throw() { return ("Span: exception: the span is empty or only contains one element"); }
 		};
-		unsigned int shortestSpan( void ) throw(exceptionSpanTooShort);
-		unsigned int longestSpan( void ) throw(exceptionSpanTooShort);
+		unsigned int shortestSpan( void ) const throw(exceptionSpanTooShort);
+		unsigned int longestSpan( void ) const throw(exceptionSpanTooShort);
 
 	private:
 		Span( void );
@@ -79,7 +79,9 @@ template<typename T>
 	if (it_start > it_end)
 		throw (exceptionWrongIterator());
 	if (std::distance(it_start, it_end) > _sizeMax - _size)
+	{
 		throw (exceptionRageTooWide());
+	}
 	while (it_start != it_end)
 	{
 		++_size;

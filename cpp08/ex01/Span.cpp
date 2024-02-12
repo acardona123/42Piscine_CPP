@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 18:37:03 by acardona          #+#    #+#             */
-/*   Updated: 2024/02/10 18:52:53 by acardona         ###   ########.fr       */
+/*   Updated: 2024/02/12 16:55:52 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,21 +86,21 @@ static long int _abs(long int a)
 	return (a < 0 ? -a : a);
 }
 
-unsigned int	Span::shortestSpan( void ) throw(exceptionSpanTooShort)
+unsigned int	Span::shortestSpan( void ) const throw(exceptionSpanTooShort)
 {
 	if (_size <= 1)
 		throw (exceptionSpanTooShort());
-	std::vector<int> diffs(_values.size());
+	std::vector<int> diffs(_values);
 	
 	std::sort(diffs.begin(), diffs.end());
-	std::adjacent_difference(_values.begin(), _values.end(), diffs.begin());
+	std::adjacent_difference(diffs.begin(), diffs.end(), diffs.begin());
 	diffs[0] = diffs[1];
 	std::transform(diffs.begin(), diffs.end(), diffs.begin(), _abs);
-	// return (*min_element(diffs.begin(), diffs.end()));	
+	
 	return (static_cast<unsigned int>(*min_element(diffs.begin(), diffs.end())));	
 }
 
-unsigned int	Span::longestSpan( void ) throw(exceptionSpanTooShort)
+unsigned int	Span::longestSpan( void ) const throw(exceptionSpanTooShort)
 {
 	if (_size <= 1)
 		throw (exceptionSpanTooShort());	
