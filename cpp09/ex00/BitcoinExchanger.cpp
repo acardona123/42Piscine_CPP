@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 21:54:43 by acardona          #+#    #+#             */
-/*   Updated: 2024/01/28 19:23:53 by acardona         ###   ########.fr       */
+/*   Updated: 2024/02/14 22:40:32 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,16 @@ BitcoinExchanger::BitcoinExchanger(BitcoinExchanger const & model) : _changeRate
 {
 }
 
-BitcoinExchanger::BitcoinExchanger(std::string dataFileName) throw (ExceptionConstructorFail)
+BitcoinExchanger::BitcoinExchanger(char *dataFileName) throw (ExceptionConstructorFail)
 {
 	std::ifstream 	inFile ;
 	std::string		line;
 	char			separator;
+	std::string		dataFileNameStr (dataFileName);
 
-	if (dataFileName.length() < 4 || dataFileName.substr(dataFileName.length() - 4, 4) != ".csv")
+	if (dataFileNameStr.length() < 4 || dataFileNameStr.substr(dataFileNameStr.length() - 4, 4) != ".csv")
 	{
-		std::cout <<  "Error: " << dataFileName << " is not a .csv file" << std::endl;
+		std::cout <<  "Error: " << dataFileNameStr << " is not a .csv file" << std::endl;
 		throw (ExceptionConstructorFail());
 	}		
 	try
@@ -43,7 +44,7 @@ BitcoinExchanger::BitcoinExchanger(std::string dataFileName) throw (ExceptionCon
 	}
 	catch (std::exception & e)
 	{
-		std::cout << "Error: " << dataFileName << ": " << e.what() << std::endl;
+		std::cout << "Error: " << dataFileNameStr << ": " << e.what() << std::endl;
 		throw (ExceptionConstructorFail());
 	}
 
@@ -56,7 +57,7 @@ BitcoinExchanger::BitcoinExchanger(std::string dataFileName) throw (ExceptionCon
 	}
 	if (line.length() != 18 ||  line.substr(0, 4) != "date" || line.substr(5, 13) != "exchange_rate")
 	{
-		std::cout << "Error: " << dataFileName << ": invalid header" << std::endl;
+		std::cout << "Error: " << dataFileNameStr << ": invalid header" << std::endl;
 		throw(ExceptionConstructorFail());
 	}
 	separator = line.at(4);
@@ -119,7 +120,7 @@ bool	BitcoinExchanger::addChangeRate( std::string & line, char separator)
 		std::cout << "Error: bad format" << std::endl;
 		return (true);
 	}
-	_changeRatesDB.insert({date, changeRate});
+	_changeRatesDB.insert(std::make_pair(date, changeRate));
 	return (false);
 }
 

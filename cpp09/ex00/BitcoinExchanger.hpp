@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 21:55:13 by acardona          #+#    #+#             */
-/*   Updated: 2024/01/28 18:24:18 by acardona         ###   ########.fr       */
+/*   Updated: 2024/02/14 22:32:36 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class BitcoinExchanger
 		{
 		};
 		BitcoinExchanger( void );
-		BitcoinExchanger(std::string dataFileName) throw (ExceptionConstructorFail);
+		BitcoinExchanger(char *dataFileName) throw (ExceptionConstructorFail);
 		BitcoinExchanger(BitcoinExchanger const & model );
 		~BitcoinExchanger( void );
 		BitcoinExchanger & operator=( BitcoinExchanger const & rhs);

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*																			*/
 /*														:::	  ::::::::   */
-/*   sort_vector.cpp									:+:	  :+:	:+:   */
+/*   sort_deque.cpp									:+:	  :+:	:+:   */
 /*													+:+ +:+		 +:+	 */
 /*   By: acardona <acardona@student.42.fr>		  +#+  +:+	   +#+		*/
 /*												+#+#+#+#+#+   +#+		   */
@@ -10,25 +10,25 @@
 /*																			*/
 /* ************************************************************************** */
 
-# include "sort_vector.hpp"
+# include "sort_deque.hpp"
 
-successStatus	sortVector(char **args, bool verbose)
+successStatus	sortDeque(char **args, bool verbose)
 {
-	vectorUnsigned toSort;
+	dequeUnsigned toSort;
 
 	if (GetvaluesToSort(args, toSort) == FAILURE)
 		return (FAILURE);
 	if (verbose)
-		std::cout << "\e[1mBefore :\e[0m ", displayVector(toSort);
-	MergeInsertVector(toSort);
+		std::cout << "\e[1mBefore :\e[0m ", displayDeque(toSort);
+	MergeInsertDeque(toSort);
 	if (verbose)
-		std::cout << "\e[1mAfter :\e[0m ", displayVector(toSort);
+		std::cout << "\e[1mAfter :\e[0m ", displayDeque(toSort);
 	return (SUCCESS);
 }
 
-successStatus	GetvaluesToSort(char **inputElements, vectorUnsigned &dest )
+successStatus	GetvaluesToSort(char **inputElements, dequeUnsigned &dest )
 {
-	unsigned int 	argIndex = 0;
+	unsigned int 	argIndex = 1;
 	unsigned int	NewIntValue;
 
 	while (inputElements[argIndex])
@@ -41,16 +41,16 @@ successStatus	GetvaluesToSort(char **inputElements, vectorUnsigned &dest )
 	return (SUCCESS);
 }
 
-void MergeInsertVector(vectorUnsigned &toSort)
+void MergeInsertDeque(dequeUnsigned &toSort)
 {
 	t_unpaired unpairedElement; 
 
 	if (toSort.size() <= 1)
 		return ;
 
-	vectorPairs toSortPaired = pairElements<unsigned int>(toSort, unpairedElement);
+	dequePairs toSortPaired = pairElements<unsigned int>(toSort, unpairedElement);
 	if (VERBOSE_STEP_BY_STEP)
-		std::cout << "Paired: ", displayPairsVector(toSortPaired),
+		std::cout << "Paired: ", displayPairsDeque(toSortPaired),
 			std::cout << "  unpaired elem ? "
 			<< ((unpairedElement.isUnpaired == ONE_UNPAIRED_ELEMENT) ?
 				"one unpaired":"No unpaired") <<  " -> "
@@ -59,89 +59,89 @@ void MergeInsertVector(vectorUnsigned &toSort)
 	sortElementsInPairs(toSortPaired);
 	if (VERBOSE_STEP_BY_STEP)
 		std::cout << "Inside of the pairs paired: ",
-			displayPairsVector(toSortPaired);
+			displayPairsDeque(toSortPaired);
 
 	mergeSortPairs(toSortPaired, toSortPaired.begin(), toSortPaired.end());
 	if (VERBOSE_STEP_BY_STEP)
 		std::cout << "Sorted pairs: ",
-			displayPairsVector(toSortPaired);
+			displayPairsDeque(toSortPaired);
 
 	toSort = extractMax(toSortPaired);
 	if (VERBOSE_STEP_BY_STEP)
-		std::cout << "Extract max: ", displayVector(toSort);
+		std::cout << "Extract max: ", displayDeque(toSort);
 
 	insertFirstMin(toSortPaired, toSort);
 	if (VERBOSE_STEP_BY_STEP)
-		std::cout << "Insert first min: ", displayVector(toSort),
-			std::cout << " -> ", displayPairsVector(toSortPaired);
+		std::cout << "Insert first min: ", displayDeque(toSort),
+			std::cout << " -> ", displayPairsDeque(toSortPaired);
 
 	insertMins(toSortPaired, toSort, unpairedElement);
 	if (VERBOSE_STEP_BY_STEP)
-		std::cout << "Insert min: ", displayVector(toSort);
+		std::cout << "Insert min: ", displayDeque(toSort);
 }
 
-void	sortElementsInPairs(vectorPairs & paired)
+void	sortElementsInPairs(dequePairs & paired)
 {
-	for (vectorPairs::iterator it = paired.begin(); it != paired.end(); ++it)
+	for (dequePairs::iterator it = paired.begin(); it != paired.end(); ++it)
 	{
 		if ((*it).first < (*it).second)
 			std::swap((*it).first,(*it).second);
 	}
 }
 
-void	mergeSortPairs(vectorPairs & toSort, vectorPairs::iterator itStart, vectorPairs::iterator itEnd)
+void	mergeSortPairs(dequePairs & toSort, dequePairs::iterator itStart, dequePairs::iterator itEnd)
 {
 	unsigned int subSize = std::distance(itStart, itEnd);
 	if ( subSize < 2)
 		return;
 	mergeSortPairs(toSort, itStart, itStart + subSize / 2);
 	mergeSortPairs(toSort, itStart + subSize / 2, itEnd);
-	vectorPairs sortedSubSectionLeft;
-	vectorPairs sortedSubSectionRight;
+	dequePairs sortedSubSectionLeft;
+	dequePairs sortedSubSectionRight;
 	sortedSubSectionLeft.assign(itStart, itStart + subSize / 2);
 	sortedSubSectionRight.assign(itStart + subSize / 2, itEnd);
-	unsigned int	indexInSubvector = 0;
+	unsigned int	indexInSubdeque = 0;
 	while (!sortedSubSectionLeft.empty() && !sortedSubSectionRight.empty())
 	{
 		if (sortedSubSectionLeft.front().first <= sortedSubSectionRight.front().first)
 		{
-			*(itStart + indexInSubvector) = sortedSubSectionLeft.front();
+			*(itStart + indexInSubdeque) = sortedSubSectionLeft.front();
 			sortedSubSectionLeft.erase(sortedSubSectionLeft.begin());
 		}
 		else
 		{
-			*(itStart + indexInSubvector) = sortedSubSectionRight.front();
+			*(itStart + indexInSubdeque) = sortedSubSectionRight.front();
 			sortedSubSectionRight.erase(sortedSubSectionRight.begin());
 		}
-		++indexInSubvector;
+		++indexInSubdeque;
 	}
 	if (!sortedSubSectionLeft.empty())
 	{
-		std::copy(sortedSubSectionLeft.begin(), sortedSubSectionLeft.end(), itStart + indexInSubvector);
+		std::copy(sortedSubSectionLeft.begin(), sortedSubSectionLeft.end(), itStart + indexInSubdeque);
 	}
 	else
 	{
-		std::copy(sortedSubSectionRight.begin(), sortedSubSectionRight.end(), itStart + indexInSubvector);
+		std::copy(sortedSubSectionRight.begin(), sortedSubSectionRight.end(), itStart + indexInSubdeque);
 	}
 }
 
-vectorUnsigned	extractMax(vectorPairs & sortedPairs)
+dequeUnsigned	extractMax(dequePairs & sortedPairs)
 {
-	vectorUnsigned maximums;
-	for (vectorPairs::iterator it = sortedPairs.begin(); it != sortedPairs.end(); ++it)
+	dequeUnsigned maximums;
+	for (dequePairs::iterator it = sortedPairs.begin(); it != sortedPairs.end(); ++it)
 	{
 		maximums.push_back(it->first);
 	}
 	return maximums;
 }
 
-void	insertFirstMin(vectorPairs & sortedPairs, vectorUnsigned & sortedValues)
+void	insertFirstMin(dequePairs & sortedPairs, dequeUnsigned & sortedValues)
 {
 	sortedValues.insert(sortedValues.begin(), sortedPairs.begin()->second);
 	sortedPairs.erase(sortedPairs.begin());
 }
 
-void	insertMins(vectorPairs & sortedPairs, vectorUnsigned & sortedValues,
+void	insertMins(dequePairs & sortedPairs, dequeUnsigned & sortedValues,
 			t_unpaired & unpairedElement)
 {
 	static const long unsigned int jacobsthalValues[] = {
@@ -187,9 +187,9 @@ void	insertMins(vectorPairs & sortedPairs, vectorUnsigned & sortedValues,
 }
 
 void	insertJacobsthalGroup(
-			vectorPairs::iterator pairsIndexGroupStart,
+			dequePairs::iterator pairsIndexGroupStart,
 			unsigned long int groupSize,
-			vectorUnsigned & sortedValues)
+			dequeUnsigned & sortedValues)
 {
 		unsigned long int	inGroupIndex = groupSize - 1;
 		while (1)
@@ -206,12 +206,12 @@ void	insertJacobsthalGroup(
 
 
 
-void	displayVector(vectorUnsigned const toDisplay)
+void	displayDeque(dequeUnsigned const toDisplay)
 {
 	if (!toDisplay.empty())
 	{
 		std::cout << "{";
-		for (vectorUnsigned::const_iterator it = toDisplay.begin(); it != toDisplay.end() - 1; ++it)
+		for (dequeUnsigned::const_iterator it = toDisplay.begin(); it != toDisplay.end() - 1; ++it)
 		{
 			std::cout << *it << ", ";
 		}
@@ -219,16 +219,16 @@ void	displayVector(vectorUnsigned const toDisplay)
 	}
 	else
 	{
-		std::cout << "Empty vector" << std::endl;
+		std::cout << "Empty deque" << std::endl;
 	}
 }
 
-void	displayPairsVector(vectorPairs const toDisplay)
+void	displayPairsDeque(dequePairs const toDisplay)
 {
 	if (!toDisplay.empty())
 	{
 		std::cout << "{";
-		for (vectorPairs::const_iterator it = toDisplay.begin(); it != toDisplay.end() - 1; ++it)
+		for (dequePairs::const_iterator it = toDisplay.begin(); it != toDisplay.end() - 1; ++it)
 		{
 			std::cout << "(" << it->first << ", " << it->second << "), ";
 		}
@@ -236,6 +236,6 @@ void	displayPairsVector(vectorPairs const toDisplay)
 	}
 	else
 	{
-		std::cout << "Empty vector" << std::endl;
+		std::cout << "Empty deque" << std::endl;
 	}
 }

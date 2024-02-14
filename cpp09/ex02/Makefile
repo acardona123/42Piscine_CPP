@@ -1,10 +1,13 @@
 NAME		=	PmergeMe
 
 CC			=	c++
-CFLAGS		=	-Werror -Wall -Wextra -g
+CFLAGS		=	-Werror -Wall -Wextra -std=c++98 -g
 DEPSFLAG	=	-MMD
 
 FILES		=	main \
+				shared \
+				sort_vector \
+				sort_deque
 
 SRC			=	$(addsuffix .cpp, $(FILES))
 

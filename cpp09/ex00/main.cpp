@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 00:57:50 by acardona          #+#    #+#             */
-/*   Updated: 2024/01/28 22:02:24 by acardona         ###   ########.fr       */
+/*   Updated: 2024/02/14 22:31:29 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int main(int ac, char **av)
 		return (1);
 	}
 
-	std::string inputFileName (av[1]);
-	std::string dataFileName ("data.csv");
+	char 		*inputFileName (av[1]);
+	char	dataFileName[] = "data.csv";
 
 	//open the input file first (to avoid unecessary calculation on the database if the input can't be opened)
 	std::ifstream inputStream;
