@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 15:18:12 by acardona          #+#    #+#             */
-/*   Updated: 2024/01/12 16:34:09 by acardona         ###   ########.fr       */
+/*   Updated: 2024/02/13 19:08:38 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ static t_input_type _get_input_likely_type(std::string input) throw(std::invalid
 
 // === convert from char ===
 
-static char _check_format_and_exctract_char(std::string input) throw(std::invalid_argument)
+static char _check_format_and_extract_char(std::string input) throw(std::invalid_argument)
 {
 	if (input.size() != 3 || input.at(2) != '\'')
 		throw(std::invalid_argument("wrong char format"));
@@ -118,7 +118,7 @@ static void	_convert_char(std::string str) throw(std::invalid_argument)
 {
 	char	c;
 
-	c = _check_format_and_exctract_char(str);
+	c = _check_format_and_extract_char(str);
 	_display(str.at(1));
 	_display(static_cast<int>(c));
 	_display(static_cast<float>(c), 1);
@@ -128,7 +128,7 @@ static void	_convert_char(std::string str) throw(std::invalid_argument)
 
 // === convert from int ===
 
-static int _check_format_and_exctract_int(std::string input) throw(std::invalid_argument)
+static int _check_format_and_extract_int(std::string input) throw(std::invalid_argument)
 {
 	if (input.find_first_not_of("-0123456789") != std::string::npos)
 		throw (std::invalid_argument("wrong format"));
@@ -144,7 +144,7 @@ static void	_convert_int(std::string input) throw(std::invalid_argument)
 {
 	int	n;
 
-	n = _check_format_and_exctract_int(input);
+	n = _check_format_and_extract_int(input);
 	if (n < 0 || n > 255)
 		_display_impossible("char");
 	else
@@ -159,7 +159,7 @@ static void	_convert_int(std::string input) throw(std::invalid_argument)
 
 // === convert from float ===
 
-static float _check_format_and_exctract_float(std::string input) throw(std::invalid_argument)
+static float _check_format_and_extract_float(std::string input) throw(std::invalid_argument)
 {
 	float	f;
 	char	*nextChar;
@@ -172,7 +172,7 @@ static float _check_format_and_exctract_float(std::string input) throw(std::inva
 
 static void	_convert_float(std::string str) throw(std::invalid_argument)
 {
-	float	f (_check_format_and_exctract_float(str));
+	float	f (_check_format_and_extract_float(str));
 	int		precision;
 
 	if (f < CHAR_MIN || f > CHAR_MAX || str == "nanf" || str == "-nanf")
@@ -191,7 +191,7 @@ static void	_convert_float(std::string str) throw(std::invalid_argument)
 
 // === convert from double ===
 
-static float _check_format_and_exctract_double(std::string input) throw(std::invalid_argument)
+static float _check_format_and_extract_double(std::string input) throw(std::invalid_argument)
 {
 	double	d;
 	char	*nextChar;
@@ -203,7 +203,7 @@ static float _check_format_and_exctract_double(std::string input) throw(std::inv
 }
 static void	_convert_double(std::string str) throw(std::invalid_argument)
 {
-	double	d (_check_format_and_exctract_double(str));
+	double	d (_check_format_and_extract_double(str));
 	int		precision;
 
 
