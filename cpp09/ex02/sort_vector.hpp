@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 23:34:12 by acardona          #+#    #+#             */
-/*   Updated: 2024/02/14 21:55:11 by acardona         ###   ########.fr       */
+/*   Updated: 2024/02/15 19:54:28 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "shared.hpp"
 #include <vector>
 
-#define VERBOSE_STEP_BY_STEP false
+#define VERBOSE_STEP_BY_STEP_VECTOR false
 
 typedef std::vector<unsigned int> vectorUnsigned;
 typedef std::vector< std::pair<unsigned int, unsigned int> > vectorPairs;

@@ -49,7 +49,7 @@ void MergeInsertVector(vectorUnsigned &toSort)
 		return ;
 
 	vectorPairs toSortPaired = pairElements<unsigned int>(toSort, unpairedElement);
-	if (VERBOSE_STEP_BY_STEP)
+	if (VERBOSE_STEP_BY_STEP_VECTOR)
 		std::cout << "Paired: ", displayPairsVector(toSortPaired),
 			std::cout << "  unpaired elem ? "
 			<< ((unpairedElement.isUnpaired == ONE_UNPAIRED_ELEMENT) ?
@@ -57,26 +57,26 @@ void MergeInsertVector(vectorUnsigned &toSort)
 			<< unpairedElement.unpairedValue << std::endl;
 
 	sortElementsInPairs(toSortPaired);
-	if (VERBOSE_STEP_BY_STEP)
+	if (VERBOSE_STEP_BY_STEP_VECTOR)
 		std::cout << "Inside of the pairs paired: ",
 			displayPairsVector(toSortPaired);
 
 	mergeSortPairs(toSortPaired, toSortPaired.begin(), toSortPaired.end());
-	if (VERBOSE_STEP_BY_STEP)
+	if (VERBOSE_STEP_BY_STEP_VECTOR)
 		std::cout << "Sorted pairs: ",
 			displayPairsVector(toSortPaired);
 
 	toSort = extractMax(toSortPaired);
-	if (VERBOSE_STEP_BY_STEP)
+	if (VERBOSE_STEP_BY_STEP_VECTOR)
 		std::cout << "Extract max: ", displayVector(toSort);
 
 	insertFirstMin(toSortPaired, toSort);
-	if (VERBOSE_STEP_BY_STEP)
+	if (VERBOSE_STEP_BY_STEP_VECTOR)
 		std::cout << "Insert first min: ", displayVector(toSort),
 			std::cout << " -> ", displayPairsVector(toSortPaired);
 
 	insertMins(toSortPaired, toSort, unpairedElement);
-	if (VERBOSE_STEP_BY_STEP)
+	if (VERBOSE_STEP_BY_STEP_VECTOR)
 		std::cout << "Insert min: ", displayVector(toSort);
 }
 

@@ -6,7 +6,7 @@
 /*   By: acardona <acardona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 18:36:06 by acardona          #+#    #+#             */
-/*   Updated: 2024/02/14 21:55:25 by acardona         ###   ########.fr       */
+/*   Updated: 2024/02/15 19:55:27 by acardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 #include <deque>
 
-#define VERBOSE_STEP_BY_STEP false
+#define VERBOSE_STEP_BY_STEP_DEQUE false
 
 typedef std::deque<unsigned int> dequeUnsigned;
 typedef std::deque< std::pair<unsigned int, unsigned int> > dequePairs;

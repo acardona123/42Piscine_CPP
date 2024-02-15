@@ -49,7 +49,7 @@ void MergeInsertDeque(dequeUnsigned &toSort)
 		return ;
 
 	dequePairs toSortPaired = pairElements<unsigned int>(toSort, unpairedElement);
-	if (VERBOSE_STEP_BY_STEP)
+	if (VERBOSE_STEP_BY_STEP_DEQUE)
 		std::cout << "Paired: ", displayPairsDeque(toSortPaired),
 			std::cout << "  unpaired elem ? "
 			<< ((unpairedElement.isUnpaired == ONE_UNPAIRED_ELEMENT) ?
@@ -57,26 +57,26 @@ void MergeInsertDeque(dequeUnsigned &toSort)
 			<< unpairedElement.unpairedValue << std::endl;
 
 	sortElementsInPairs(toSortPaired);
-	if (VERBOSE_STEP_BY_STEP)
+	if (VERBOSE_STEP_BY_STEP_DEQUE)
 		std::cout << "Inside of the pairs paired: ",
 			displayPairsDeque(toSortPaired);
 
 	mergeSortPairs(toSortPaired, toSortPaired.begin(), toSortPaired.end());
-	if (VERBOSE_STEP_BY_STEP)
+	if (VERBOSE_STEP_BY_STEP_DEQUE)
 		std::cout << "Sorted pairs: ",
 			displayPairsDeque(toSortPaired);
 
 	toSort = extractMax(toSortPaired);
-	if (VERBOSE_STEP_BY_STEP)
+	if (VERBOSE_STEP_BY_STEP_DEQUE)
 		std::cout << "Extract max: ", displayDeque(toSort);
 
 	insertFirstMin(toSortPaired, toSort);
-	if (VERBOSE_STEP_BY_STEP)
+	if (VERBOSE_STEP_BY_STEP_DEQUE)
 		std::cout << "Insert first min: ", displayDeque(toSort),
 			std::cout << " -> ", displayPairsDeque(toSortPaired);
 
 	insertMins(toSortPaired, toSort, unpairedElement);
-	if (VERBOSE_STEP_BY_STEP)
+	if (VERBOSE_STEP_BY_STEP_DEQUE)
 		std::cout << "Insert min: ", displayDeque(toSort);
 }
 
